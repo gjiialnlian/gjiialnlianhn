@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="category">
+
+    <typeAlias alias="category" type="com.hn.dao.category.CategoryModel"/>
+    <cacheModel id="categoryCache" type="MEMORY" readOnly="false" serialize="true">
+        <flushInterval hours="1"/>
+        <flushOnExecute statement="category.getAll"/>
+    </cacheModel>
+
+    <resultMap id="result" class="category">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+    </resultMap>
+
+    <insert id="insert" parameterClass="category">
+        INSERT INTO category (id, name, description)
+        VALUES (#id#, #name#, #description#)
+    </insert>
+    
+    <select id="getAll" resultMap="result" parameterClass="java.lang.String">
+        SELECT * FROM category
+    </select>
+</sqlMap>

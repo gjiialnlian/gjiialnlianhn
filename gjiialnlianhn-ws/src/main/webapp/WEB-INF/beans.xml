@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+http://cxf.apache.org/jaxrs
+http://cxf.apache.org/schemas/jaxrs.xsd">
+
+  <import resource="classpath:META-INF/cxf/cxf.xml" />
+
+  <context:property-placeholder/>
+  <context:annotation-config/>
+  <bean class="org.springframework.web.context.support.ServletContextPropertyPlaceholderConfigurer"/>
+  <bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer"/>
+
+  <!--  JAXRS -->
+  <jaxrs:server id="categoryJaxRSService" address="/category">
+	    <jaxrs:serviceBeans>
+	        <bean class="com.hn.service.category.CategoryServiceImpl" />
+	    </jaxrs:serviceBeans>
+	    <jaxrs:providers>
+	        <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+	    </jaxrs:providers>
+  </jaxrs:server>
+  
+  <jaxrs:server id="services" address="/hello">
+	    <jaxrs:serviceBeans>
+	        <bean class="com.HelloWorld" />
+	    </jaxrs:serviceBeans>
+	    <jaxrs:providers>
+	        <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+	    </jaxrs:providers>
+  </jaxrs:server>
+  
+  <!-- CONFIG -->
+  <bean id="propertyPlaceholder" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="locations">
+    		<list>
+    			<value>/WEB-INF/database/database.properties</value>
+    		</list>
+    	</property>
+    </bean>
+  
+  <!-- DATABASE -->
+  
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/hotnews"/>
+        <property name="username" value="root"/>
+        <property name="password" value="hotnews"/>
+  </bean>
+  
+  <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+        <property name="configLocation">
+            <value>/WEB-INF/ibatis/config/SqlMapConfig.xml</value>
+        </property>
+        <property name="useTransactionAwareDataSource">
+            <value>true</value>
+        </property>
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+  </bean>
+  
+  <bean id="sqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+        <property name="sqlMapClient">
+            <ref bean="sqlMapClient"/>
+        </property>
+  </bean>
+  
+  <bean id="categoryDao" class="com.hn.dao.category.CategoryDaoImpl">
+    	<property name="sqlMapClient">
+            <ref bean="sqlMapClient"/>
+        </property>
+  </bean>
+  
+</beans>
