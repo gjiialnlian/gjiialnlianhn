@@ -1,0 +1,48 @@
+## Category
+id		8	
+name		30
+description	255
+active		int
+createdDate	date
+updatedDate	date
+
+## Item
+id		8	
+catId		8
+description	255
+url		text
+active		int
+createdDate	date
+updatedDate	date
+
+## Image
+id		8
+typeId		30
+catId		8
+active		int
+createdDate	date
+updatedDate	date
+
+** ImageType
+id		30
+description	255
+createdDate	date
+updatedDate	date
+
+** Preference
+id		int	
+type		30
+value		255
+description	255
+active		int
+createdDate	date
+updatedDate	date
+
+** PreferenceType
+id		30
+description	255
+createdDate	date
+updatedDate	date
+
+
+
