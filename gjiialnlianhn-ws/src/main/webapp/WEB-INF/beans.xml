@@ -104,6 +104,7 @@
         </property>
   </bean>
   
+    <!-- DAO -->
   <bean id="categoryDao" class="com.hn.dao.category.CategoryDaoImpl">
     	<property name="sqlMapClient">
             <ref bean="sqlMapClient"/>
@@ -130,5 +131,8 @@
   
   <!-- Aspect -->
   <bean id="categoryAudit" class="com.hn.aop.CategoryAudit"/>
+  <bean id="loginAudit" class="com.hn.aop.LoginAudit"/>
+  <bean id="roleAudit" class="com.hn.aop.RoleAudit"/>
+  <bean id="userAudit" class="com.hn.aop.UserAudit"/>
   
 </beans>

@@ -41,6 +41,49 @@
 		<!-- <appender-ref ref="consoleAppender" /> -->
 	</logger>
 	
+	<appender name="loginAudit" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C:/WorkZone/www.hotnews.com/logs/loginAudit.log" />
+		<param name="MaxFileSize" value="2MB"/>  
+       	<param name="MaxBackupIndex" value="5"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p  [%c{1}] %m %n" />
+		</layout>
+	</appender>
+	
+	<logger name="com.hn.aop.LoginAudit" additivity="false">
+		<appender-ref ref="loginAudit" />
+		<!-- <appender-ref ref="consoleAppender" /> -->
+	</logger>
+	
+	
+	<appender name="roleAudit" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C:/WorkZone/www.hotnews.com/logs/roleAudit.log" />
+		<param name="MaxFileSize" value="2MB"/>  
+       	<param name="MaxBackupIndex" value="5"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p  [%c{1}] %m %n" />
+		</layout>
+	</appender>
+	
+	<logger name="com.hn.aop.RoleAudit" additivity="false">
+		<appender-ref ref="roleAudit" />
+		<!-- <appender-ref ref="consoleAppender" /> -->
+	</logger>
+	
+	<appender name="userAudit" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C:/WorkZone/www.hotnews.com/logs/userAudit.log" />
+		<param name="MaxFileSize" value="2MB"/>  
+       	<param name="MaxBackupIndex" value="5"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p  [%c{1}] %m %n" />
+		</layout>
+	</appender>
+	
+	<logger name="com.hn.aop.UserAudit" additivity="false">
+		<appender-ref ref="userAudit" />
+		<!-- <appender-ref ref="consoleAppender" /> -->
+	</logger>
+	
 	<!-- Set Priority Level. DEV : debug, STG:INFO, PROD:INFO-->
 	<root> 
     		<priority value ="debug" /> 
