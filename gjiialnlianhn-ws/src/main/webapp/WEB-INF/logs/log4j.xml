@@ -11,8 +11,10 @@
 		</layout>
 	</appender>
 
+	  <!-- Set logger. -->
+
 	<appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="D:/MyProjects/www.hotnews.com/logs/hotnews-ws.log" />
+		<param name="File" value="C:/WorkZone/www.hotnews.com/logs/hotnews-ws.log" />
 		<param name="MaxFileSize" value="2MB"/>  
        	<param name="MaxBackupIndex" value="5"/>
 		<layout class="org.apache.log4j.PatternLayout">
@@ -20,16 +22,29 @@
 		</layout>
 	</appender>
 	
-    <!-- Set logger. -->
 	<logger name="com.hn" additivity="false">
 		<appender-ref ref="fileAppender" />
 		<!-- <appender-ref ref="consoleAppender" /> -->
 	</logger>
-
+	
+	<appender name="categoryAudit" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C:/WorkZone/www.hotnews.com/logs/categoryAudit.log" />
+		<param name="MaxFileSize" value="2MB"/>  
+       	<param name="MaxBackupIndex" value="5"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p  [%c{1}] %m %n" />
+		</layout>
+	</appender>
+	
+	<logger name="com.hn.aop.CategoryAudit" additivity="false">
+		<appender-ref ref="categoryAudit" />
+		<!-- <appender-ref ref="consoleAppender" /> -->
+	</logger>
+	
 	<!-- Set Priority Level. DEV : debug, STG:INFO, PROD:INFO-->
 	<root> 
     		<priority value ="debug" /> 
-    		<appender-ref ref="fileAppender" />
-			<!-- <appender-ref ref="consoleAppender" />  -->
+    		<!--<appender-ref ref="fileAppender" />-->
+			 <appender-ref ref="consoleAppender" />  
   	</root>	
 </log4j:configuration>

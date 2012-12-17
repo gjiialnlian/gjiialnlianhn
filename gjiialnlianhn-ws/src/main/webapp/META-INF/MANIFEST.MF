@@ -7,7 +7,7 @@ Class-Path: cxf-rt-frontend-jaxrs-2.7.0.jar cxf-api-2.7.0.jar woodstox
  ar jackson-mapper-asl-1.8.6.jar jackson-jaxrs-1.8.6.jar spring-web-3.
  0.6.RELEASE.jar aopalliance-1.0.jar spring-beans-3.1.3.RELEASE.jar sp
  ring-core-3.1.3.RELEASE.jar spring-asm-3.1.3.RELEASE.jar commons-logg
- ing-1.1.1.jar spring-context-3.1.3.RELEASE.jar spring-aop-3.1.3.RELEA
+ ing-1.1.1.jar spring-context-3.1.3.RELEASE.jar spring-aop-3.0.4.RELEA
  SE.jar spring-expression-3.1.3.RELEASE.jar spring-ibatis-2.0.8.jar lo
  g4j-1.2.13.jar ibatis-sqlmap-2.3.0.jar spring-dao-2.0.8.jar spring-jd
  bc-3.1.3.RELEASE.jar mysql-connector-java-5.1.22.jar ibatis2-common-2
@@ -15,5 +15,5 @@ Class-Path: cxf-rt-frontend-jaxrs-2.7.0.jar cxf-api-2.7.0.jar woodstox
  ommons-beanutils-20030211.134440.jar commons-digester-2.1.jar commons
  -fileupload-1.2.2.jar commons-io-20030203.000550.jar commons-logging-
  api-1.1.jar spring-context-support-3.1.3.RELEASE.jar spring-tx-3.1.3.
- RELEASE.jar commons-dbcp-20030825.184428.jar
+ RELEASE.jar aspectjtools-1.6.9.jar commons-dbcp-20030825.184428.jar
 
