@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="login">
+
+    <typeAlias alias="login" type="com.hn.dao.login.LoginModel"/>
+    <cacheModel id="loginCache" type="MEMORY" readOnly="false" serialize="true">
+        <flushInterval hours="1"/>
+        <flushOnExecute statement="login.getAll"/>
+        <flushOnExecute statement="login.getById"/>
+    </cacheModel>
+
+    <resultMap id="result" class="login">
+        <result property="id" column="id"/>
+        <result property="userId" column="userId"/>
+        <result property="password" column="password"/>
+        <result property="createdDate" column="createdDate"/>
+        <result property="updatedDate" column="updatedDate"/>
+    </resultMap>
+    
+	<select id="getAll" resultMap="result">
+        SELECT * FROM login
+    </select>
+    
+    <select id="getById" resultMap="result" parameterClass="login">
+        SELECT * FROM login where id = #id#
+    </select>
+
+    <insert id="insert" parameterClass="login">
+        INSERT INTO login (id, userId, password ,createdDate, updatedDate)
+        VALUES (#id#, #userId#, #password#, now(), now())
+    </insert>
+ 
+    <update id="update" parameterClass="login">
+    	UPDATE login 
+    	set userId = #userId#, 
+    		password = #password#,
+    		updatedDate = now() 
+    	where id = #id#
+    </update>
+    
+    <delete id="delete" parameterClass="login">
+    	DELETE from login where id = #id#
+    </delete>
+    
+</sqlMap>

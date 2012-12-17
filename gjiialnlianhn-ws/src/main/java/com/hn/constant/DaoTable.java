@@ -1,7 +1,10 @@
 package com.hn.constant;
 
 public enum DaoTable {
-	CATEGORY("category","CategoryModel");
+	CATEGORY("category","CategoryModel"),
+	USER("user","UserModel"),
+	ROLE("role","RoleModel"),
+	LOGIN("login","LoginModel");
 	
 	private String name;
 	private String mapping;

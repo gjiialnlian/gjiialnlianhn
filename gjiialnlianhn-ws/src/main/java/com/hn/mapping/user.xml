@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="user">
+
+    <typeAlias alias="user" type="com.hn.dao.user.UserModel"/>
+    <cacheModel id="userCache" type="MEMORY" readOnly="false" serialize="true">
+        <flushInterval hours="1"/>
+        <flushOnExecute statement="user.getAll"/>
+        <flushOnExecute statement="user.getById"/>
+    </cacheModel>
+
+    <resultMap id="result" class="user">
+        <result property="id" column="id"/>
+        <result property="roleId" column="roleId"/>
+        <result property="name" column="name"/>
+        <result property="email" column="email"/>
+        <result property="active" column="active"/>
+        <result property="createdDate" column="createdDate"/>
+        <result property="updatedDate" column="updatedDate"/>
+    </resultMap>
+    
+	<select id="getAll" resultMap="result">
+        SELECT * FROM user
+    </select>
+    
+    <select id="getById" resultMap="result" parameterClass="user">
+        SELECT * FROM user where id = #id#
+    </select>
+
+    <insert id="insert" parameterClass="user">
+        INSERT INTO user (id, roleId, name, active, email,createdDate, updatedDate)
+        VALUES (#id#, #roleId#, #name#, #active#, #email#, now(), now())
+    </insert>
+ 
+    <update id="update" parameterClass="user">
+    	UPDATE user 
+    	set roleId = #roleId#, 
+    		name = #name#,
+    		email = #email#,
+    		active = #active#,
+    		updatedDate = now() 
+    	where id = #id#
+    </update>
+    
+    <delete id="delete" parameterClass="user">
+    	DELETE from user where id = #id#
+    </delete>
+    
+</sqlMap>

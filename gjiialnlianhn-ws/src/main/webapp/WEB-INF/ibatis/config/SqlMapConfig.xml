@@ -4,5 +4,8 @@
 <sqlMapConfig>
     <settings enhancementEnabled="true" useStatementNamespaces="true"/>
     <sqlMap resource="com/hn/mapping/category.xml"/>
+    <sqlMap resource="com/hn/mapping/user.xml"/>
+    <sqlMap resource="com/hn/mapping/role.xml"/>
+    <sqlMap resource="com/hn/mapping/login.xml"/>
 </sqlMapConfig>
 

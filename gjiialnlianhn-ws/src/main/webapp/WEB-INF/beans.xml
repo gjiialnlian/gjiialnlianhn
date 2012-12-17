@@ -32,6 +32,33 @@
 	    </jaxrs:providers>
   </jaxrs:server>
   
+  <jaxrs:server id="userJaxRSService" address="/user">
+	    <jaxrs:serviceBeans>
+	        <bean class="com.hn.service.user.UserServiceImpl" />
+	    </jaxrs:serviceBeans>
+	    <jaxrs:providers>
+	        <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+	    </jaxrs:providers>
+  </jaxrs:server>
+  
+  <jaxrs:server id="roleJaxRSService" address="/role">
+	    <jaxrs:serviceBeans>
+	        <bean class="com.hn.service.role.RoleServiceImpl" />
+	    </jaxrs:serviceBeans>
+	    <jaxrs:providers>
+	        <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+	    </jaxrs:providers>
+  </jaxrs:server>
+  
+  <jaxrs:server id="loginJaxRSService" address="/login">
+	    <jaxrs:serviceBeans>
+	        <bean class="com.hn.service.login.LoginServiceImpl" />
+	    </jaxrs:serviceBeans>
+	    <jaxrs:providers>
+	        <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+	    </jaxrs:providers>
+  </jaxrs:server>
+  
   <jaxrs:server id="services" address="/hello">
 	    <jaxrs:serviceBeans>
 	        <bean class="com.HelloWorld" />
@@ -78,6 +105,24 @@
   </bean>
   
   <bean id="categoryDao" class="com.hn.dao.category.CategoryDaoImpl">
+    	<property name="sqlMapClient">
+            <ref bean="sqlMapClient"/>
+        </property>
+  </bean>
+  
+  <bean id="userDao" class="com.hn.dao.user.UserDaoImpl">
+    	<property name="sqlMapClient">
+            <ref bean="sqlMapClient"/>
+        </property>
+  </bean>
+  
+  <bean id="roleDao" class="com.hn.dao.role.RoleDaoImpl">
+    	<property name="sqlMapClient">
+            <ref bean="sqlMapClient"/>
+        </property>
+  </bean>
+  
+  <bean id="loginDao" class="com.hn.dao.login.LoginDaoImpl">
     	<property name="sqlMapClient">
             <ref bean="sqlMapClient"/>
         </property>
