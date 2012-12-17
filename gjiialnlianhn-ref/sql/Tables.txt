@@ -44,5 +44,24 @@ description	255
 createdDate	date
 updatedDate	date
 
+** User
+id
+roleId
+name
+email
+createdDate
+updatedDate
 
+** Login
+id
+userId
+password
+createdDate
+updatedDate
+
+** Role
+id
+description
+createdDate
+updatedDate
 
