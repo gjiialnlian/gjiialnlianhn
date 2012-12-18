@@ -33,9 +33,11 @@
 	<bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
 	
 	<security:authentication-manager alias="authenticationManager">
-		<security:authentication-provider user-service-ref="userDetailsService">
-			<security:password-encoder ref="passwordEncoder" />
-		</security:authentication-provider>
+		<security:authentication-provider >
+			<security:user-service>
+				<security:user name="mkyong" password="123456" authorities="ROLE_USER" />
+			</security:user-service>
+		</security:authentication-provider >
 	</security:authentication-manager>
 
 	

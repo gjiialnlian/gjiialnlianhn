@@ -9,6 +9,12 @@ Class-Path: cxf-rt-frontend-jaxrs-2.7.0.jar cxf-api-2.7.0.jar woodstox
  alliance-1.0.jar spring-asm-3.0.5.RELEASE.jar spring-beans-3.0.5.RELE
  ASE.jar spring-core-3.0.5.RELEASE.jar commons-logging-1.1.1.jar sprin
  g-expression-3.0.5.RELEASE.jar spring-webmvc-3.0.5.RELEASE.jar spring
- -context-support-3.0.5.RELEASE.jar spring-web-3.0.5.RELEASE.jar dwr-2
- .0.rc2.jar
+ -context-support-3.0.5.RELEASE.jar spring-web-3.0.5.RELEASE.jar sprin
+ g-security-web-3.0.5.RELEASE.jar spring-security-core-3.0.5.RELEASE.j
+ ar spring-tx-3.0.3.RELEASE.jar aspectjrt-1.6.8.jar aspectjweaver-1.6.
+ 8.jar spring-security-config-3.0.5.RELEASE.jar spring-security-taglib
+ s-3.0.5.RELEASE.jar spring-security-acl-3.0.5.RELEASE.jar spring-jdbc
+ -3.0.3.RELEASE.jar dwr-2.0.rc2.jar jstl-1.2.jar groovy-2.0.4.jar antl
+ r-2.7.7.jar asm-tree-4.0.jar asm-4.0.jar asm-commons-4.0.jar asm-util
+ -4.0.jar asm-analysis-4.0.jar
 
