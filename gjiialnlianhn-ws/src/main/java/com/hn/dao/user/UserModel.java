@@ -6,19 +6,15 @@ public class UserModel extends GenericModel{
 	
 	private static final long serialVersionUID = 1L;
 	private String id;
-	private String roleId;
 	private String name;
 	private String email;
-	private int active;
 	
 	public UserModel() {}
 
-	public UserModel(String id, String roleId, String name, String email, int active){
+	public UserModel(String id, String name, String email){
 	     this.id = id;
-	     this.roleId = roleId;
 	     this.name = name;
 	     this.email=email;
-	     this.active=active;
 	}
 
 	public String getId() {
@@ -27,14 +23,6 @@ public class UserModel extends GenericModel{
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(String roleId) {
-		this.roleId = roleId;
 	}
 
 	public String getName() {
@@ -51,13 +39,5 @@ public class UserModel extends GenericModel{
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public int getActive() {
-		return active;
-	}
-
-	public void setActive(int active) {
-		this.active = active;
 	}
 }

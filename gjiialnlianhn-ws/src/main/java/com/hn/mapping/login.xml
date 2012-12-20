@@ -12,7 +12,9 @@
     <resultMap id="result" class="login">
         <result property="id" column="id"/>
         <result property="userId" column="userId"/>
+        <result property="roleId" column="roleId"/>
         <result property="password" column="password"/>
+        <result property="active" column="active"/>
         <result property="createdDate" column="createdDate"/>
         <result property="updatedDate" column="updatedDate"/>
     </resultMap>
@@ -26,14 +28,16 @@
     </select>
 
     <insert id="insert" parameterClass="login">
-        INSERT INTO login (id, userId, password ,createdDate, updatedDate)
-        VALUES (#id#, #userId#, #password#, now(), now())
+        INSERT INTO login (id, userId, roleId, password, active ,createdDate, updatedDate)
+        VALUES (#id#, #userId#, #roleId#, #password#, #active#,now(), now())
     </insert>
  
     <update id="update" parameterClass="login">
     	UPDATE login 
     	set userId = #userId#, 
+    		roleId = #roleId#,
     		password = #password#,
+    		active = #active#,
     		updatedDate = now() 
     	where id = #id#
     </update>

@@ -11,10 +11,8 @@
 
     <resultMap id="result" class="user">
         <result property="id" column="id"/>
-        <result property="roleId" column="roleId"/>
         <result property="name" column="name"/>
         <result property="email" column="email"/>
-        <result property="active" column="active"/>
         <result property="createdDate" column="createdDate"/>
         <result property="updatedDate" column="updatedDate"/>
     </resultMap>
@@ -28,16 +26,14 @@
     </select>
 
     <insert id="insert" parameterClass="user">
-        INSERT INTO user (id, roleId, name, active, email,createdDate, updatedDate)
-        VALUES (#id#, #roleId#, #name#, #active#, #email#, now(), now())
+        INSERT INTO user (id, name, email,createdDate, updatedDate)
+        VALUES (#id#, #name#, #email#, now(), now())
     </insert>
  
     <update id="update" parameterClass="user">
     	UPDATE user 
-    	set roleId = #roleId#, 
-    		name = #name#,
+    	set name = #name#,
     		email = #email#,
-    		active = #active#,
     		updatedDate = now() 
     	where id = #id#
     </update>

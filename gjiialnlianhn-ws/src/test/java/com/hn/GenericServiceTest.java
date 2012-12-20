@@ -82,4 +82,28 @@ public abstract class GenericServiceTest<T> {
 		CategoryBean output = parser.readValueAs(CategoryBean.class);
 		assertEquals(ResponseStatus.PASSED, output.getStatus());
 	}
+
+	public static String getWEB_APP() {
+		return WEB_APP;
+	}
+
+	public static void setWEB_APP(String wEB_APP) {
+		WEB_APP = wEB_APP;
+	}
+
+	public String getEndpointUrl() {
+		return endpointUrl;
+	}
+
+	public void setEndpointUrl(String endpointUrl) {
+		this.endpointUrl = endpointUrl;
+	}
+
+	public T getBean() {
+		return bean;
+	}
+
+	public void setBean(T bean) {
+		this.bean = bean;
+	}
 }

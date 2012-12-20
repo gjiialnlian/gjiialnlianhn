@@ -20,7 +20,7 @@ public class LoginServiceImpl implements LoginService{
 		List<LoginBean> beanList = new ArrayList<LoginBean>();
 		
 		for(LoginModel model : list){
-			beanList.add(new LoginBean(model.getId(), model.getUserId(), model.getPassword()));
+			beanList.add(new LoginBean(model.getId(), model.getUserId(), model.getRoleId(), model.getPassword(), model.getActive()));
 		}
 		
 		return Response.ok().entity(beanList).build();
@@ -31,7 +31,9 @@ public class LoginServiceImpl implements LoginService{
 		LoginModel model = new LoginModel();
 		model.setId(bean.getId());
 		model.setUserId(bean.getUserId());
+		model.setRoleId(bean.getRoleId());
 		model.setPassword(bean.getPassword());
+		model.setActive(bean.getActive());
 		loginDao.insert(model);
 		bean.setStatus(ResponseStatus.PASSED);
 		return Response.ok().entity(bean).build();
@@ -42,7 +44,9 @@ public class LoginServiceImpl implements LoginService{
 		LoginModel model = new LoginModel();
 		model.setId(bean.getId());
 		model.setUserId(bean.getUserId());
+		model.setRoleId(bean.getRoleId());
 		model.setPassword(bean.getPassword());
+		model.setActive(bean.getActive());
 		loginDao.update(model);
 		bean.setStatus(ResponseStatus.PASSED);
 		return Response.ok().entity(bean).build();
@@ -62,7 +66,7 @@ public class LoginServiceImpl implements LoginService{
 		LoginModel model = new LoginModel();
 		model.setId(id);
 		model = loginDao.getModelById(model);
-		LoginBean bean = new LoginBean(model.getId(), model.getUserId(), model.getPassword());
+		LoginBean bean = new LoginBean(model.getId(), model.getUserId(),model.getRoleId(), model.getPassword(), model.getActive());
 		return Response.ok().entity(bean).build();
 	}
 }
