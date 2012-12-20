@@ -3,6 +3,7 @@ package com.hotnews.constant;
 public enum ServiceType {
 	CATEGORY("category","CategoryBean"),
 	USER("user","UserBean"),
+	LOGIN("login","LoginBean"),
 	ROLE("role","RoleBean");
 	
 	private String name;

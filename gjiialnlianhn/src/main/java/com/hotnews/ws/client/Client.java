@@ -15,7 +15,7 @@ import com.hotnews.constant.RequestType;
 
 public abstract class Client {
 	
-	String WEB_APP = "http://localhost:8085/hotnews-ws/";
+	String WEB_APP = "http://localhost:8080/hotnews-ws/";
 	String endpointUrl;
 	WebClient client;
 	Response response;
