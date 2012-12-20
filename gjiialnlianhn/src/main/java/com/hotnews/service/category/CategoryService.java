@@ -1,12 +1,8 @@
 package com.hotnews.service.category;
 
-import java.util.List;
-import org.codehaus.jackson.JsonParseException;
-
 import com.hotnews.bean.CategoryBean;
+import com.hotnews.service.GenericService;
 
-public interface CategoryService {
-
-	List<CategoryBean> getAll() throws JsonParseException;
+public interface CategoryService extends GenericService<CategoryBean>{
 	
 }

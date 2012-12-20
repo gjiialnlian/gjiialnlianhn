@@ -32,9 +32,9 @@ public class ClientManager<T> extends Client{
 	
 	@SuppressWarnings("unchecked")
 	public T getResponseBean(){
-		return (T) getResponse();
+		return (T) getResponse(object.getClass());
 	}
-
+	
 	public ClientManager<T> callGet(String url, T object){
 		return getInstance(url, RequestType.GET, object);
 	}

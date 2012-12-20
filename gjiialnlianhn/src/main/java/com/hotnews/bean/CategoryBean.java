@@ -1,7 +1,12 @@
 package com.hotnews.bean;
 
+import org.directwebremoting.annotations.DataTransferObject;
+import org.directwebremoting.convert.BeanConverter;
+
+@DataTransferObject(converter = BeanConverter.class)
 public class CategoryBean extends GenericBean{
 	
+	private static final long serialVersionUID = 1L;
 	private String active;
 
 	public CategoryBean() {}

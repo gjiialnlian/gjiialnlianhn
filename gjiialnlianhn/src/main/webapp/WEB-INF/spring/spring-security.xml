@@ -10,10 +10,14 @@
 	<security:http  auto-config="false" use-expressions="true" access-denied-page="/denied/" entry-point-ref="authenticationEntryPoint">
 		<security:intercept-url pattern="/welcome*" access="isAuthenticated()"/>
 		
+		<security:intercept-url pattern="/*" access="permitAll"/>
+		<security:intercept-url pattern="/dwr*" access="permitAll"/>
+		<security:intercept-url pattern="/dwr/**" access="permitAll" />
+		
 		<!-- Make CSS and image resources to unsecured -->
         <security:intercept-url pattern="/css/**" access="permitAll" />
         <security:intercept-url pattern="/images/**" access="permitAll" />
-		
+        
 		<security:logout invalidate-session="true" logout-success-url="/login.jsp" logout-url="/logout" />
 
 		<security:custom-filter ref="authenticationFilter" position="FORM_LOGIN_FILTER" />
@@ -21,7 +25,7 @@
 		<security:session-management session-authentication-strategy-ref="sessionAuthenticationStrategy"/>
 	
 	</security:http>
-	
+
 	<bean id="authenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint" p:loginFormUrl="/login.jsp" />
 	
 	<bean id="authenticationFilter" class="com.hotnews.authentication.session.ClusterAwareUsernamePasswordAuthentication"

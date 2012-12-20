@@ -1,30 +1,35 @@
 package com.hotnews.dwr;
 
 import java.util.List;
+
 import org.directwebremoting.annotations.Param;
 import org.directwebremoting.annotations.RemoteMethod;
 import org.directwebremoting.annotations.RemoteProxy;
 import org.directwebremoting.spring.SpringCreator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.hotnews.bean.UserBean;
+import com.hotnews.service.user.UserService;
 
-import com.hotnews.bean.CategoryBean;
-import com.hotnews.service.category.CategoryService;
-
-
-@Service(value = "CategoryDWR")
+@Service(value = "UserDWR")
 @RemoteProxy(
-		name = "CategoryDWR",
+		name = "UserDWR",
 		creator = SpringCreator.class,
-		creatorParams = @Param(name = "beanName", value = "CategoryDWR")
+		creatorParams = @Param(name = "beanName", value = "UserDWR")
 )
-public class CategoryDWR{
+public class UserDWR{
 	
 	@Autowired
-	private CategoryService categoryService;
-	
+	private UserService userService;
+
 	@RemoteMethod
-	public List<CategoryBean> getAll(){	
-		return categoryService.getAll();
+	public List<UserBean> getAll() {
+		return userService.getAll();
 	}
+
+	@RemoteMethod
+	public UserBean getById(String id) {
+		return userService.getById(id);
+	}
+
 }

@@ -25,13 +25,10 @@
  <!-- Defines the dwrController. During production, set the debug property to false -->
  <dwr:controller id="dwrController" debug="true" />
  
- <!-- This is required if you want to configure any beans not managed by
-  Spring. Leaving it enabled doesn't do any negative effects. Here's a
-  sample config: 
   <dwr:configuration>
-   <dwr:convert type="bean" class="com.search.manager.model.RecordSet" />
-  </dwr:configuration>-->
-  <dwr:configuration/>
+   <dwr:convert type="bean" class="com.hotnews.bean.UserBean"/>
+  </dwr:configuration>
+
  
  <!-- Some articles
   DWR 2.0.x, Spring 2.x, with Spring MVC

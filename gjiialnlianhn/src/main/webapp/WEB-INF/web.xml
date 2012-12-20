@@ -115,9 +115,25 @@
 			<param-name>classes</param-name>
 			<param-value>
 				com.hotnews.dwr.CategoryDWR,
-				com.hotnews.bean.CategoryBean
+				com.hotnews.bean.CategoryBean,
+				com.hotnews.dwr.UserDWR,
+				com.hotnews.bean.UserBean,
+				com.hotnews.dwr.RoleDWR,
+				com.hotnews.bean.RoleBean
+				
 			</param-value>
 		</init-param>
+		<init-param> 
+          <param-name>crossDomainSessionSecurity</param-name> 
+          <param-value>false</param-value> 
+		</init-param> 
+		<init-param> 
+          <param-name>sessionCookieName</param-name> 
+          <param-value>SLESESSIONID</param-value> 
+		</init-param> 
+		
+		
+		
 	</servlet>
 	
 	<servlet-mapping>

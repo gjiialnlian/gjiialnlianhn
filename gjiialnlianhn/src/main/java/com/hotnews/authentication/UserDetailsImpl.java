@@ -49,10 +49,10 @@ public class UserDetailsImpl implements UserDetails {
 		this.enabled = enabled;
 	}
 	
-	public UserDetailsImpl(User user) {
-		this.password = user.getPassword();
-		this.username = user.getUsername();
-	}
+//	public UserDetailsImpl(User user) {
+//		this.password = user.getPassword();
+//		this.username = user.getUsername();
+//	}
 	
 	public Collection<GrantedAuthority> getAuthorities() {
 		return authorities;
