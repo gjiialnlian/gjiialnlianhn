@@ -23,8 +23,8 @@
 	</appender>
 	
 	<logger name="com.hn" additivity="false">
-		<appender-ref ref="fileAppender" />
-		<!-- <appender-ref ref="consoleAppender" /> -->
+		<!-- <appender-ref ref="fileAppender" /> -->
+		<appender-ref ref="consoleAppender" />
 	</logger>
 	
 	<appender name="categoryAudit" class="org.apache.log4j.RollingFileAppender">

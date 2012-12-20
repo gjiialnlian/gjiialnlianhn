@@ -2,6 +2,7 @@ package com.hn.bean;
 
 public class LoginBean extends GenericBean{
 	
+	private static final long serialVersionUID = 1L;
 	private String userId;
 	private String password;
 

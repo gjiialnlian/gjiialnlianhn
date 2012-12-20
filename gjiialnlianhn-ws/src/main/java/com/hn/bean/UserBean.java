@@ -2,6 +2,7 @@ package com.hn.bean;
 
 public class UserBean extends GenericBean{
 	
+	private static final long serialVersionUID = 1L;
 	private String active;
 	private String roleId;
 	private String email;

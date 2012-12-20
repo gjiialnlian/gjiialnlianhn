@@ -2,6 +2,7 @@ package com.hn.bean;
 
 public class CategoryBean extends GenericBean{
 	
+	private static final long serialVersionUID = 1L;
 	private String active;
 
 	public CategoryBean() {}

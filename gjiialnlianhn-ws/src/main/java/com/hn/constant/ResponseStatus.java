@@ -1,6 +1,8 @@
 package com.hn.constant;
 
-public enum ResponseStatus {
+import java.io.Serializable;
+
+public enum ResponseStatus implements Serializable{
 	
 	FAILED(0),
 	PASSED(1);
