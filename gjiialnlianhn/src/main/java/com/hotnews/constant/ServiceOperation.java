@@ -3,8 +3,8 @@ package com.hotnews.constant;
 public enum ServiceOperation {
 	GETALL("getAll"),
 	GETBYID("getById"),
-	INSERT("insert"),
-	UPDATE("update"),
+	INSERT("add"),
+	UPDATE("edit"),
 	DELETE("delete");
 	
 	private String op;

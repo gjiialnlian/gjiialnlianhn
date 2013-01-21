@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 @Component("authenticationSuccessHandler")
 public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 	public CustomAuthenticationSuccessHandler() {
-		setDefaultTargetUrl("/");
+		setDefaultTargetUrl("/admin");
 	}
 }

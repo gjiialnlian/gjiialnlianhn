@@ -2,6 +2,7 @@ package com.hotnews.service;
 
 import java.util.List;
 
+import com.hotnews.bean.GenericBean;
 import com.hotnews.constant.CharacterEnum;
 import com.hotnews.constant.ServiceOperation;
 import com.hotnews.constant.ServiceType;
@@ -27,5 +28,9 @@ public abstract class GenericServiceImpl<T> implements GenericService<T> {
 		return new ClientManager<T>().callGet(ServiceOperation.GETBYID.getServiceOperation(ServiceType.find(b.getClass().getSimpleName())).concat(CharacterEnum.FSLASH.getString()).concat(id),b).getResponseBean();
 	}
 	
+	@Override
+	public Integer add(T bean) {	
+		return ((GenericBean) new ClientManager<T>().callPost(ServiceOperation.INSERT.getServiceOperation(ServiceType.find(b.getClass().getSimpleName())),bean).getResponseBean()).getStatus().getResponseStatus();
+	}
 }
 

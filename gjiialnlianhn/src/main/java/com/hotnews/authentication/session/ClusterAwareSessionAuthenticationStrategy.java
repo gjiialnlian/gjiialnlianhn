@@ -13,5 +13,8 @@ public class ClusterAwareSessionAuthenticationStrategy implements SessionAuthent
 	@Override
 	public void onAuthentication(Authentication arg0, HttpServletRequest arg1,
 			HttpServletResponse arg2) throws SessionAuthenticationException {
+	
+		System.out.println("test");
+		
 	}
 }

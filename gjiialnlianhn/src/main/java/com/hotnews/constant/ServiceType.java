@@ -4,6 +4,7 @@ public enum ServiceType {
 	CATEGORY("category","CategoryBean"),
 	USER("user","UserBean"),
 	LOGIN("login","LoginBean"),
+	ITEM("item","ItemBean"),
 	ROLE("role","RoleBean");
 	
 	private String name;

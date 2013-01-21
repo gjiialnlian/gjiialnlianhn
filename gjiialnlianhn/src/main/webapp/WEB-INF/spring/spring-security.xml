@@ -8,17 +8,18 @@
         					http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 
 	<security:http  auto-config="false" use-expressions="true" access-denied-page="/denied/" entry-point-ref="authenticationEntryPoint">
-		<security:intercept-url pattern="/welcome*" access="isAuthenticated()"/>
+		<security:intercept-url pattern="/admin*" access="isAuthenticated()"/>
 		
 		<security:intercept-url pattern="/*" access="permitAll"/>
 		<security:intercept-url pattern="/dwr*" access="permitAll"/>
 		<security:intercept-url pattern="/dwr/**" access="permitAll" />
 		
 		<!-- Make CSS and image resources to unsecured -->
+		<security:intercept-url pattern="/js/**" access="permitAll" />
         <security:intercept-url pattern="/css/**" access="permitAll" />
         <security:intercept-url pattern="/images/**" access="permitAll" />
-        
-		<security:logout invalidate-session="true" logout-success-url="/login.jsp" logout-url="/logout" />
+ 
+		<security:logout invalidate-session="true" logout-success-url="/login" logout-url="/logout" />
 
 		<security:custom-filter ref="authenticationFilter" position="FORM_LOGIN_FILTER" />
 		<security:custom-filter ref="concurrencyFilter" position="CONCURRENT_SESSION_FILTER" />
@@ -26,7 +27,7 @@
 	
 	</security:http>
 
-	<bean id="authenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint" p:loginFormUrl="/login.jsp" />
+	<bean id="authenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint" p:loginFormUrl="/login" />
 	
 	<bean id="authenticationFilter" class="com.hotnews.authentication.session.ClusterAwareUsernamePasswordAuthentication"
 		p:authenticationManager-ref="authenticationManager"
@@ -45,6 +46,6 @@
 	
 	<bean id="concurrencyFilter" class="org.springframework.security.web.session.ConcurrentSessionFilter"
 		  p:sessionRegistry-ref="sessionRegistry" 
-		  p:expiredUrl="/login.jsp?login_error=expiredsession" />
+		  p:expiredUrl="/login?login_error=expiredsession" />
 	
 </beans>

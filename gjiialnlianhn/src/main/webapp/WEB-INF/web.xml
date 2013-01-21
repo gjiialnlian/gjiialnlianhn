@@ -119,7 +119,9 @@
 				com.hotnews.dwr.UserDWR,
 				com.hotnews.bean.UserBean,
 				com.hotnews.dwr.RoleDWR,
-				com.hotnews.bean.RoleBean
+				com.hotnews.bean.RoleBean,
+				com.hotnews.dwr.ItemDWR,
+				com.hotnews.bean.ItemBean
 				
 			</param-value>
 		</init-param>

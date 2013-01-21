@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 @Component("authenticationFailureHandler")
 public class CustomAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 	public CustomAuthenticationFailureHandler() {
-		setDefaultFailureUrl("/login.jsp?login_error=1");
+		setDefaultFailureUrl("/login?login_error=1");
 	}
 }
