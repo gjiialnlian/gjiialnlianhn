@@ -7,5 +7,6 @@
     <sqlMap resource="com/hn/mapping/user.xml"/>
     <sqlMap resource="com/hn/mapping/role.xml"/>
     <sqlMap resource="com/hn/mapping/login.xml"/>
+    <sqlMap resource="com/hn/mapping/item.xml"/>
 </sqlMapConfig>
 

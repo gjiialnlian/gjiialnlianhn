@@ -59,6 +59,15 @@
 	    </jaxrs:providers>
   </jaxrs:server>
   
+  <jaxrs:server id="itemJaxRSService" address="/item">
+	    <jaxrs:serviceBeans>
+	        <bean class="com.hn.service.item.ItemServiceImpl" />
+	    </jaxrs:serviceBeans>
+	    <jaxrs:providers>
+	        <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+	    </jaxrs:providers>
+  </jaxrs:server>
+  
   <jaxrs:server id="services" address="/hello">
 	    <jaxrs:serviceBeans>
 	        <bean class="com.HelloWorld" />
@@ -124,6 +133,12 @@
   </bean>
   
   <bean id="loginDao" class="com.hn.dao.login.LoginDaoImpl">
+    	<property name="sqlMapClient">
+            <ref bean="sqlMapClient"/>
+        </property>
+  </bean>
+  
+  <bean id="itemDao" class="com.hn.dao.item.ItemDaoImpl">
     	<property name="sqlMapClient">
             <ref bean="sqlMapClient"/>
         </property>

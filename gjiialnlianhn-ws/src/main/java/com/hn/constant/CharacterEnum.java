@@ -2,6 +2,7 @@ package com.hn.constant;
 
 public enum CharacterEnum {
 	DOT("."),
+	NO("N"),
 	YES("Y");
 	
 	private String string;

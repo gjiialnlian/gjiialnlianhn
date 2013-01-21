@@ -4,6 +4,7 @@ public enum DaoTable {
 	CATEGORY("category","CategoryModel"),
 	USER("user","UserModel"),
 	ROLE("role","RoleModel"),
+	ITEM("item","ItemModel"),
 	LOGIN("login","LoginModel");
 	
 	private String name;

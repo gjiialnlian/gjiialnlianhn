@@ -15,5 +15,24 @@ Class-Path: cxf-rt-frontend-jaxrs-2.7.0.jar cxf-api-2.7.0.jar woodstox
  ommons-beanutils-20030211.134440.jar commons-digester-2.1.jar commons
  -fileupload-1.2.2.jar commons-io-20030203.000550.jar commons-logging-
  api-1.1.jar spring-context-support-3.1.3.RELEASE.jar spring-tx-3.1.3.
- RELEASE.jar aspectjtools-1.6.9.jar commons-dbcp-20030825.184428.jar
+ RELEASE.jar aspectjtools-1.6.9.jar commons-dbcp-20030825.184428.jar o
+ w2-bundles-externals-mule-1.4-1.0.32.jar mule-core-1.4.4.jar geronimo
+ -j2ee-connector_1.5_spec-1.0.1.jar geronimo-jta_1.0.1B_spec-1.0.1.jar
+  backport-util-concurrent-3.1.jar commons-cli-1.0.jar commons-lang-2.
+ 3.jar commons-collections-3.2.jar commons-discovery-0.2.jar jcl104-ov
+ er-slf4j-1.4.3.jar slf4j-api-1.4.3.jar slf4j-log4j12-1.4.3.jar jug-2.
+ 0.0-asl.jar commons-pool-1.4.jar mockobjects-core-0.09.jar mule-modul
+ e-client-1.4.4.jar mule-module-builders-1.4.4.jar mule-module-xml-1.4
+ .4.jar dom4j-1.4.jar commons-jxpath-1.2.jar xstream-1.2.1.jar xpp3_mi
+ n-1.1.3.4.O.jar stax-api-1.0.1.jar wstx-asl-3.2.2.jar activation-1.1.
+ jar mule-transport-tcp-1.4.4.jar mule-transport-vm-1.4.4.jar mule-tra
+ nsport-file-1.4.4.jar mule-transport-udp-1.4.4.jar mule-module-boot-1
+ .4.4.jar wrapper-3.2.3.jar commons-httpclient-3.1.jar commons-codec-1
+ .3.jar mule-transport-jms-1.4.4.jar geronimo-jms_1.1_spec-1.0.1.jar m
+ ule-tests-functional-1.4.4.jar mule-module-management-1.4.4.jar geron
+ imo-j2ee-management_1.0_spec-1.0.1.jar geronimo-ejb_2.1_spec-1.0.1.ja
+ r mx4j-jmx-2.1.1.jar mx4j-impl-2.1.1.jar mx4j-tools-2.1.1.jar mx4j-re
+ mote-2.1.1.jar yjp-controller-api-redist-7.0.10.jar mule-transport-ht
+ tp-1.4.4.jar mule-transport-ssl-1.4.4.jar org.mortbay.jetty-5.1.12.ja
+ r mule-transport-stream-1.4.4.jar
 
