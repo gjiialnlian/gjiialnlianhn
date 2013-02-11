@@ -9,11 +9,11 @@ public class ItemModel extends GenericModel{
 	private String catId;
 	private String description;
 	private String url;
-	private int active;
+	private String active;
 	
 	public ItemModel() {}
 
-	public ItemModel(String id, String catId, String description, String url, int active){
+	public ItemModel(String id, String catId, String description, String url, String active){
 	     this.id = id;
 	     this.catId = catId;
 	     this.description = description;
@@ -53,11 +53,11 @@ public class ItemModel extends GenericModel{
 		this.url = url;
 	}
 
-	public int getActive() {
+	public String getActive() {
 		return active;
 	}
 
-	public void setActive(int active) {
+	public void setActive(String active) {
 		this.active = active;
 	}
 }

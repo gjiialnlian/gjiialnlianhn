@@ -5,7 +5,6 @@ import java.util.List;
 import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.hn.bean.ItemBean;
-import com.hn.constant.CharacterEnum;
 import com.hn.constant.ResponseStatus;
 import com.hn.dao.item.ItemDao;
 import com.hn.dao.item.ItemModel;
@@ -21,7 +20,7 @@ public class ItemServiceImpl implements ItemService{
 		List<ItemBean> beanList = new ArrayList<ItemBean>();
 		
 		for(ItemModel model : list){
-			beanList.add(new ItemBean(model.getId(),model.getCatId(), model.getDescription(), model.getUrl(), model.getActive() == 1?CharacterEnum.YES.getString():CharacterEnum.NO.getString()));
+			beanList.add(new ItemBean(model.getId(),model.getCatId(), model.getDescription(), model.getUrl(), model.getActive()));
 		}
 		
 		return Response.ok().entity(beanList).build();
@@ -34,9 +33,8 @@ public class ItemServiceImpl implements ItemService{
 		model.setCatId(bean.getCatId());
 		model.setDescription(bean.getDescription());
 		model.setUrl(bean.getUrl());
-		model.setActive(bean.getActive().equals(CharacterEnum.YES.getString())?1:0);
+		model.setActive(bean.getActive());
 		model.setDescription(bean.getDescription());
-		model.setActive(bean.getActive().equals(CharacterEnum.YES.getString())?1:0);
 		itemDao.insert(model);
 		bean.setStatus(ResponseStatus.PASSED);
 		return Response.ok().entity(bean).build();
@@ -49,9 +47,8 @@ public class ItemServiceImpl implements ItemService{
 		model.setCatId(bean.getCatId());
 		model.setDescription(bean.getDescription());
 		model.setUrl(bean.getUrl());
-		model.setActive(bean.getActive().equals(CharacterEnum.YES.getString())?1:0);
+		model.setActive(bean.getActive());
 		model.setDescription(bean.getDescription());
-		model.setActive(bean.getActive().equals(CharacterEnum.YES.getString())?1:0);
 		itemDao.update(model);
 		bean.setStatus(ResponseStatus.PASSED);
 		return Response.ok().entity(bean).build();
@@ -71,7 +68,7 @@ public class ItemServiceImpl implements ItemService{
 		ItemModel model = new ItemModel();
 		model.setId(id);
 		model = itemDao.getModelById(model);
-		ItemBean bean = new ItemBean(model.getId(),model.getCatId(), model.getDescription(), model.getUrl(), model.getActive() == 1?CharacterEnum.YES.getString():CharacterEnum.NO.getString());
+		ItemBean bean = new ItemBean(model.getId(),model.getCatId(), model.getDescription(), model.getUrl(), model.getActive());
 		return Response.ok().entity(bean).build();
 	}
 }

@@ -17,7 +17,7 @@ import com.hn.constant.ResponseStatus;
 
 public abstract class GenericServiceTest<T> {
 
-	public static String WEB_APP = "http://localhost:8080/hotnews-ws/";
+	public static String WEB_APP = "http://localhost:8280/hotnews-ws/";
 	public String endpointUrl;
 	public T bean;
 	

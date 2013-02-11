@@ -14,7 +14,15 @@ public class LoginServiceTest extends GenericServiceTest<LoginBean>{
 	
 	@Test
 	public void testAdd() throws Exception {
-		this.setBean(new LoginBean("GIAN_CARLO","TESTUSER","TEST_ROLE","e10adc3949ba59abbe56e057f20f883e",CharacterEnum.YES.getString()));
+		this.setBean(new LoginBean("GIAN_CARLO","TESTUSER","ROLE_ADMIN","e10adc3949ba59abbe56e057f20f883e",CharacterEnum.YES.getString()));
 		super.testAdd();
 	}
+	
+	@Override
+	@Test
+	public void testGetById() throws Exception {
+		this.setBean(new LoginBean("GIAN_CARLO","TESTUSER","ROLE_ADMIN","e10adc3949ba59abbe56e057f20f883e",CharacterEnum.YES.getString()));
+		super.testGetById();
+	}
+	
 }
