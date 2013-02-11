@@ -98,11 +98,32 @@
 					}		
 				});
 				
-				
 				$('.form-submit').on({
 					click : function(){
-						category.addItem();
-						$('#uploadForm').submit();
+						if(category.addItem()){
+							var formData = new FormData($('#uploadForm')[0]); 
+		                    $.ajax({
+		                        url: 'http://localhost:8180/hotnews/addCategory/upload',
+		                        type: 'POST',
+		                        data: formData,
+		                        cache: false,
+		                        contentType: false,
+		                        processData: false,
+		                        
+		                        xhr: function() {
+		                            myXhr = $.ajaxSettings.xhr(); 
+		                            return myXhr;
+		                        },   
+		                        success: function(response, textStatus, xhr, form) {
+		                        	alert('Item was added succesfully.');
+									nav.loadNav('category'); 
+		                        },
+		                        error: function(xhr, textStatus, errorThrown) {
+		                        	alert("Error Uploading");
+		                        }
+		                    }, 'json');
+						}else
+							alert('Error processing your request.');
 					}
 				});	
 				
@@ -132,18 +153,10 @@
 							}
 						}
 					}
-				)){
-					ItemDWR.add(form.find('#name').val(), form.find('#catOpt').val(), form.find('#url').val(),{
-						callback:function(data){
-							if(data == '1'){
-								alert('Item was added succesfully.');
-								nav.loadNav('category');
-							}else{
-								alert('Error processing your request.');
-							}	
-						}		
-					});
-				}
+				))
+					return true;
+				else
+					return false;
 			}
 		}
 		

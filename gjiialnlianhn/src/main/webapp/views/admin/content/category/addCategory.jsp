@@ -1,7 +1,7 @@
 <table border="0" cellpadding="0" cellspacing="0">
 	<tr>
 	<td>
-		<form id="addCategoryForm" name="addCategoryForm">
+		<form name="uploadForm" id="uploadForm" enctype="multipart/form-data" method="post" action="addCategory">
 		<table border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<th valign="top">Name:</th>
@@ -24,14 +24,13 @@
 			<td></td>
 		</tr>
 		</table>
-		</form>
 		<table border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<th>Image 1:</th>
 			<td>
-				<form name="uploadForm" id="uploadForm" enctype="multipart/form-data" method="post" action="addCategory">								
+				<!--  <form name="uploadForm" id="uploadForm" enctype="multipart/form-data" method="post" action="addCategory">			-->					
 					<input type="file" class="file_1 multi max-3 accept-gif|jpg|jpeg|png" id="upload" name="upload" size="40"/>					
-				</form>
+				<!-- </form> -->	
 			</td>
 			<td>
 				<div class="bubble-left"></div>
@@ -48,6 +47,7 @@
 			</td>
 		</tr>
 		</table>
+		</form>
 	</td>
 	</tr>
 </table>

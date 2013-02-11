@@ -14,7 +14,8 @@ Class-Path: cxf-rt-frontend-jaxrs-2.7.0.jar cxf-api-2.7.0.jar woodstox
  ar spring-tx-3.0.3.RELEASE.jar aspectjrt-1.6.8.jar aspectjweaver-1.6.
  8.jar spring-security-config-3.0.5.RELEASE.jar spring-security-taglib
  s-3.0.5.RELEASE.jar spring-security-acl-3.0.5.RELEASE.jar spring-jdbc
- -3.0.3.RELEASE.jar dwr-2.0.rc2.jar jstl-1.2.jar groovy-2.0.4.jar antl
- r-2.7.7.jar asm-tree-4.0.jar asm-4.0.jar asm-commons-4.0.jar asm-util
- -4.0.jar asm-analysis-4.0.jar
+ -3.0.3.RELEASE.jar commons-fileupload-1.2.1.jar commons-io-1.4.jar dw
+ r-2.0.rc2.jar jstl-1.2.jar groovy-2.0.4.jar antlr-2.7.7.jar asm-tree-
+ 4.0.jar asm-4.0.jar asm-commons-4.0.jar asm-util-4.0.jar asm-analysis
+ -4.0.jar
 

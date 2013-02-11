@@ -1,7 +1,7 @@
 <div id="page-top-outer">    
 <div id="page-top">
 	<!-- start logo -->
-	<img width="256" height="90" alt="" src="images/logo/hnlogo.gif">
+	<!-- <img width="256" height="90" alt="" src="images/logo/hnlogo.gif"> -->
 	<!-- end logo -->
 	
 	<!--  start top-search -->
