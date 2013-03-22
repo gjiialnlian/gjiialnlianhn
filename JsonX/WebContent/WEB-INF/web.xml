@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>JsonX</display-name>
+  <welcome-file-list>
+    <welcome-file>html/registration.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>JsonServlet</servlet-name>
+    <servlet-class>com.servlet.JsonServlet</servlet-class>
+    <init-param>
+      <description>This is an init servlet configuration</description>
+      <param-name>config</param-name>
+      <param-value>C:/json/jsonHandler.properties</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JsonServlet</servlet-name>
+    <url-pattern>/jsonCall/*</url-pattern>
+  </servlet-mapping>
+</web-app>
