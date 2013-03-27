@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" path="src/main/java"/>
+	<classpathentry excluding="**/*.java" kind="src" path="src/main/resources"/>
+	<classpathentry excluding="**/*.java" kind="src" path="target/maven-shared-archive-resources"/>
+	<classpathentry kind="var" path="M2_REPO/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar"/>
+	<classpathentry kind="var" path="M2_REPO/javax/activation/activation/1.1/activation-1.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/servicemix/specs/org.apache.servicemix.specs.jsr311-api-1.1/1.8.0/org.apache.servicemix.specs.jsr311-api-1.1-1.8.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/servicemix/specs/org.apache.servicemix.specs.jaxb-api-2.2/1.8.0/org.apache.servicemix.specs.jaxb-api-2.2-1.8.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/servicemix/specs/org.apache.servicemix.specs.stax-api-1.0/1.8.0/org.apache.servicemix.specs.stax-api-1.0-1.8.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/geronimo/specs/geronimo-activation_1.1_spec/1.1/geronimo-activation_1.1_spec-1.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/servicemix/bundles/org.apache.servicemix.bundles.commons-httpclient/3.1_6/org.apache.servicemix.bundles.commons-httpclient-3.1_6.jar"/>
+	<classpathentry kind="var" path="M2_REPO/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/servicemix/bundles/org.apache.servicemix.bundles.commons-codec/1.3_4/org.apache.servicemix.bundles.commons-codec-1.3_4.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/camel/camel-spring/2.8.0-fuse-07-15/camel-spring-2.8.0-fuse-07-15.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/camel/camel-core/2.8.0-fuse-07-15/camel-core-2.8.0-fuse-07-15.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/fusesource/commonman/commons-management/1.0/commons-management-1.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-context/3.0.5.RELEASE/spring-context-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="var" path="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-beans/3.0.5.RELEASE/spring-beans-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-expression/3.0.5.RELEASE/spring-expression-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-tx/3.0.5.RELEASE/spring-tx-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
