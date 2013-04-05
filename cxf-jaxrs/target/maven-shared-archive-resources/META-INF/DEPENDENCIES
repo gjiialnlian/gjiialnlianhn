@@ -33,12 +33,20 @@ From: 'FuseSource' (http://www.fusesource.org)
     License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.html)
 
 From: 'FuseSource Community' (http://fusesource.com)
+  - Camel :: JAXB (http://fusesource.com/products/enterprise-camel/camel-parent/camel-jaxb/) org.apache.camel:camel-jaxb:bundle:2.8.0-fuse-07-15
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
   - Camel :: Spring (http://fusesource.com/products/enterprise-camel/camel-parent/camel-spring/) org.apache.camel:camel-spring:bundle:2.8.0-fuse-07-15
     License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
 
 From: 'QOS.ch' (http://www.qos.ch)
   - SLF4J API Module (http://www.slf4j.org/slf4j-api) org.slf4j:slf4j-api:jar:1.6.1:compile
     License: MIT style  (http://www.slf4j.org/license.html)
+
+From: 'Sun Microsystems' (http://www.sun.com/)
+  - Sun JAXB Reference Implementation Runtime (https://jaxb.dev.java.net/jaxb-impl) com.sun.xml.bind:jaxb-impl:jar:2.1.13:compile
+    License: COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0  (http://www.sun.com/cddl/cddl.html)
+  - Java Architecture for XML Binding (JAXB API)  javax.xml.bind:jaxb-api:jar:2.1:compile
+    License: COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0  (http://www.sun.com/cddl/cddl.html)
 
 From: 'The Apache Software Foundation' (http://www.apache.org/)
   - Apache Commons Logging (http://commons.apache.org/logging) commons-logging:commons-logging:jar:1.1.1:compile

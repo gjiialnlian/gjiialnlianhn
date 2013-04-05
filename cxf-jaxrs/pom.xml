@@ -49,6 +49,10 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-spring</artifactId>
         </dependency>
+        <dependency>
+      		<groupId>org.apache.camel</groupId>
+      		<artifactId>camel-jaxb</artifactId>
+    	</dependency>
     </dependencies>
 
     <build>
@@ -72,13 +76,16 @@
                             org.apache.commons.httpclient.methods,
                             org.apache.camel.builder, 
                             org.apache.camel.model, 
-                            org.apache.camel.spring,   
+                            org.apache.camel.spring,
                             javax.activation,
                             org.apache.camel.impl,
                             org.apache.camel.spi,
                             org.apache.camel.util,
                             org.apache.camel.view,
-                            org.apache.camel
+                            org.apache.camel,
+                            javax.xml.ws,
+                            javax.jws,
+                            javax.xml.namespace
                         </Import-Package>
                         <Export-Package>
                         	org.apache.servicemix.examples.cxf.jaxrs.service

@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Export-Package: org.apache.servicemix.examples.cxf.jaxrs.service;uses:
+ ="javax.ws.rs,javax.ws.rs.core,org.apache.camel"
+Built-By: Harris
+Tool: Bnd-0.0.357
+Bundle-Name: Apache ServiceMix :: Features :: Examples :: CXF JAX-RS O
+ SGI
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: FuseSource
+Build-Jdk: 1.6.0_43
+Bundle-Version: 4.4.1.fuse-08-15
+Bnd-LastModified: 1365155683305
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Description: CXF Example using JAX-RS
+Import-Package: javax.activation;version="1.1",javax.jws,javax.ws.rs;v
+ ersion="1.1",javax.ws.rs.core;version="1.1",javax.wsdl,javax.xml.bind
+ ;version="2.2",javax.xml.bind.annotation;version="2.2",javax.xml.name
+ space,javax.xml.ws,org.apache.camel;version="2.8",org.apache.camel.bu
+ ilder;version="2.8",org.apache.camel.impl;version="2.8",org.apache.ca
+ mel.model;version="2.8",org.apache.camel.spi;version="2.8",org.apache
+ .camel.spring;version="2.8",org.apache.camel.util;version="2.8",org.a
+ pache.camel.view;version="2.8",org.apache.commons.httpclient;version=
+ "3.1",org.apache.commons.httpclient.methods;version="3.1",org.apache.
+ servicemix.examples.cxf.jaxrs.service,org.springframework.beans.facto
+ ry.config;version="3.0"
+Bundle-DocURL: http://fusesource.com/
+Bundle-SymbolicName: com.nws.ws
+
