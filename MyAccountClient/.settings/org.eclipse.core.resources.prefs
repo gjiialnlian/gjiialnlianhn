@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/com/melbourneit/usermanagement/client/MyAccountVO.java=UTF-8
+encoding//src/com/melbourneit/usermanagement/service/MyAccountService.java=UTF-8
+encoding//src/com/melbourneit/usermanagement/service/MyAccountServiceHttpBindingStub.java=UTF-8
+encoding//src/com/melbourneit/usermanagement/service/MyAccountServiceLocator.java=UTF-8
+encoding//src/com/melbourneit/usermanagement/service/MyAccountServicePortType.java=UTF-8
