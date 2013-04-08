@@ -1,5 +1,4 @@
-
-package com.melbourneit.usermanagement.client;
+package com.melbourneit.usermanagement.client.myaccount;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -8,53 +7,58 @@ import javax.xml.bind.annotation.XmlElementRef;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class MyAccountVO {
+	
+	public static final String HTTP_MEL_USERMANAGEMENT_NS = "http://service.usermanagement.melbourneit.com";
+	public static final String HTTP_MEL_USERMANAGEMENT_CLIENT_NS = "http://client.usermanagement.melbourneit.com";
 
-    @XmlElementRef(name = "address1", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "address1", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> address1;
-    @XmlElementRef(name = "address2", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "address2", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> address2;
-    @XmlElementRef(name = "address3", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "address3", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> address3;
-    @XmlElementRef(name = "channel", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "channel", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> channel;
-    @XmlElementRef(name = "countryCode", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "countryCode", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> countryCode;
-    @XmlElementRef(name = "email", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "email", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> email;
-    @XmlElementRef(name = "fax", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "fax", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> fax;
-    @XmlElementRef(name = "firstname", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "firstname", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> firstname;
-    @XmlElementRef(name = "lastname", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "lastname", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> lastname;
-    @XmlElementRef(name = "login", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "login", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> login;
-    @XmlElementRef(name = "message", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "message", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> message;
-    @XmlElementRef(name = "mobile", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "mobile", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> mobile;
-    @XmlElementRef(name = "organisation", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "organisation", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> organisation;
-    @XmlElementRef(name = "parentMyAccount", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "parentMyAccount", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<MyAccountVO> parentMyAccount;
-    @XmlElementRef(name = "partyType", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "partyType", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> partyType;
-    @XmlElementRef(name = "password", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "password", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> password;
-    @XmlElementRef(name = "phone", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "phone", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> phone;
-    @XmlElementRef(name = "postcode", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "postcode", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> postcode;
-    @XmlElementRef(name = "result", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "result", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> result;
-    @XmlElementRef(name = "state", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "state", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> state;
-    @XmlElementRef(name = "status", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "status", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> status;
-    @XmlElementRef(name = "suburb", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "suburb", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> suburb;
-    @XmlElementRef(name = "type", namespace = "http://client.usermanagement.melbourneit.com", type = JAXBElement.class)
+    @XmlElementRef(name = "type", namespace = HTTP_MEL_USERMANAGEMENT_CLIENT_NS, type = JAXBElement.class)
     protected JAXBElement<String> type;
+    
+    private String partyId;
 
     /**
      * Gets the value of the address1 property.
@@ -608,4 +612,11 @@ public class MyAccountVO {
         this.type = value;
     }
 
+	public String getPartyId() {
+		return partyId;
+	}
+
+	public void setPartyId(String partyId) {
+		this.partyId = partyId;
+	}
 }

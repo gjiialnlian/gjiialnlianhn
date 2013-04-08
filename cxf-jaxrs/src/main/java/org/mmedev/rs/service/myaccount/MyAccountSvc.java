@@ -4,13 +4,25 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+
 import org.mmedev.rs.model.MyAccount;
 
 @Path("/myaccountsvc/")
-public interface MyAccountSvc {
+public interface MyAccountSvc{
     
-    @GET
+	@GET
     @Path("/getMyAccount/{id}/")
     @Produces("application/xml")
-    public MyAccount getMyAccount(@PathParam("id") String id);
+    public Response getMyAccount(@PathParam("id") String id);
+	
+    @GET
+    @Path("/getMyAccountJson/{id}/")
+    @Produces("application/json")
+    public Response getMyAccountJson(@PathParam("id") String id);
+    
+    @GET
+    @Path("/getMyAccountTest/{id}/")
+    @Produces("application/xml")
+    public MyAccount getMyAccountTest(@PathParam("id") String id);
 }

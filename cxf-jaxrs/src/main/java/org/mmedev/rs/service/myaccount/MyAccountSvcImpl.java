@@ -1,81 +1,105 @@
 package org.mmedev.rs.service.myaccount;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBIntrospector;
-import javax.xml.bind.Unmarshaller;
+import java.util.logging.Logger;
+import javax.ws.rs.core.Response;
 import javax.xml.namespace.QName;
-
 import org.mmedev.rs.model.MyAccount;
-import org.mmedev.rs.model.User;
+import org.mmedev.rs.service.GenericSvc;
+import com.melbourneit.usermanagement.client.myaccount.MyAccountVO;
+import com.melbourneit.usermanagement.service.myaccount.MyAccountService;
+import com.melbourneit.usermanagement.service.myaccount.MyAccountServicePortType;
 
-import com.melbourneit.usermanagement.client.MyAccountVO;
-import com.melbourneit.usermanagement.service.MyAccountService;
-import com.melbourneit.usermanagement.service.MyAccountServicePortType;
+public class MyAccountSvcImpl extends GenericSvc<MyAccountVO,MyAccountServicePortType> implements MyAccountSvc{
+	
+	private static Logger logger = Logger.getLogger(MyAccountSvcImpl.class.toString());
 
-public class MyAccountSvcImpl implements MyAccountSvc{
-	
-	 private static final QName SERVICE_NAME = new QName("http://service.usermanagement.melbourneit.com", "MyAccountService");
-	
-	public Object getElementValue(JAXBElement element) {
-		Object obj = null;
-		
-		try{
-	         // Create JAXBContext
-	         JAXBContext jc = JAXBContext.newInstance();
-	         JAXBIntrospector introspector = jc.createJAXBIntrospector();
-	         
-	         // create unmarshaller
-	         Unmarshaller u = jc.createUnmarshaller();
-      
-	         // get value
-	         obj = introspector.getValue(element);
-	         
-	      }catch(Exception e){
-	         e.printStackTrace();
-	      }
-		return obj;
+	public MyAccountSvcImpl() {
+		super(MyAccountService.WSDL_LOCATION, new QName(MyAccountVO.HTTP_MEL_USERMANAGEMENT_NS, "MyAccountService"));
+		connectToWS();
 	}
 	
-	@Override
-	public MyAccount getMyAccount(String id) {
-		
-		URL wsdlURL = MyAccountService.WSDL_LOCATION;
+	public Response getMyAccount(String id) {
+		return getMyAccountFromWS(id);
+	}
 
-        MyAccountService ss = new MyAccountService(wsdlURL, SERVICE_NAME);
-        MyAccountServicePortType port = ss.getMyAccountServiceHttpPort();
-       
-       
-        
-        
-        MyAccountVO acco = port.getMyAccount(id);
-        
-        
-        {
-        System.out.println("Invoking isMyAccountOptedIn...");
-      //  boolean _isMyAccountOptedIn__return = port.isMyAccountOptedIn(id);
-       // System.out.println("isMyAccountOptedIn.result=" + _isMyAccountOptedIn__return);
-        }
-		
-		
-//		MyAccountService service = new MyAccountService();
-//		MyAccountServicePortType  port = service.getMyAccountServiceHttpPort();
-//		MyAccountVO accountVO = port.getMyAccount(id);
-//		
-//		MyAccount account =	new MyAccount();
-//		
-//		
-//		getElementValue(accountVO.getAddress1());
-//		
+	public Response getMyAccountJson(String id) {
+		return getMyAccountFromWS(id);
+	}
+	
+	private Response getMyAccountFromWS(String id){
+		MyAccount account = new MyAccount();
+		try{
+			MyAccountVO acco = SERVICE_PORT.getMyAccount(id);
 
-		
-		return null;
-		
-		
-		
+	        account.setAddress1(acco.getAddress1().getValue());
+	        account.setAddress2(acco.getAddress2().getValue());
+	        account.setAddress3(acco.getAddress3().getValue());
+	        account.setChannel(acco.getChannel().getValue());
+	        account.setCountryCode(acco.getCountryCode().getValue());
+	        account.setEmail(acco.getEmail().getValue());
+	        account.setFax(acco.getFax().getValue());
+	        account.setFirstname(acco.getFirstname().getValue());
+	        account.setLastname(acco.getLastname().getValue());
+	        account.setLogin(acco.getLogin().getValue());
+	        account.setMessage(acco.getMessage().getValue());
+	        account.setMobile(acco.getMobile().getValue());
+	        account.setOrganisation(acco.getOrganisation().getValue());
+	        account.setPartyId(acco.getPartyId());
+	        account.setPartyType(acco.getPartyType().getValue());
+	        account.setPhone(acco.getPassword().getValue());
+	        account.setPostcode(acco.getPostcode().getValue());
+	        account.setResult(acco.getResult().getValue());
+	        account.setState(acco.getState().getValue());
+	        account.setStatus(acco.getStatus().getValue());
+	        account.setSuburb(acco.getSuburb().getValue());
+	        account.setType(acco.getType().getValue());
+		}catch (Exception e) {
+			logger.info(e.getMessage());
+			this.message = e.getMessage();
+			this.result = 0;
+		}
+        
+		return generateProcessResponse(account, result, message);
+	}
+	
+	public MyAccountServicePortType getHttpPortType(){
+		MyAccountService ss = new MyAccountService(wsdlURL, SERVICE_NAME);
+		return ss.getServiceHttpPort();
+	}
+
+	public MyAccount getMyAccountTest(String id) {
+		MyAccount account = new MyAccount();
+		try{
+			MyAccountVO acco = SERVICE_PORT.getMyAccount(id);
+
+	        account.setAddress1(acco.getAddress1().getValue());
+	        account.setAddress2(acco.getAddress2().getValue());
+	        account.setAddress3(acco.getAddress3().getValue());
+	        account.setChannel(acco.getChannel().getValue());
+	        account.setCountryCode(acco.getCountryCode().getValue());
+	        account.setEmail(acco.getEmail().getValue());
+	        account.setFax(acco.getFax().getValue());
+	        account.setFirstname(acco.getFirstname().getValue());
+	        account.setLastname(acco.getLastname().getValue());
+	        account.setLogin(acco.getLogin().getValue());
+	        account.setMessage(acco.getMessage().getValue());
+	        account.setMobile(acco.getMobile().getValue());
+	        account.setOrganisation(acco.getOrganisation().getValue());
+	        account.setPartyId(acco.getPartyId());
+	        account.setPartyType(acco.getPartyType().getValue());
+	        account.setPhone(acco.getPassword().getValue());
+	        account.setPostcode(acco.getPostcode().getValue());
+	        account.setResult(acco.getResult().getValue());
+	        account.setState(acco.getState().getValue());
+	        account.setStatus(acco.getStatus().getValue());
+	        account.setSuburb(acco.getSuburb().getValue());
+	        account.setType(acco.getType().getValue());
+		}catch (Exception e) {
+			logger.info(e.getMessage());
+			this.message = e.getMessage();
+			this.result = 0;
+		}
+        
+		return account;
 	}
 }

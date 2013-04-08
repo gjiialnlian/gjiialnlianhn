@@ -9,7 +9,7 @@ Created-By: Apache Maven Bundle Plugin
 Bundle-Vendor: FuseSource
 Build-Jdk: 1.6.0_43
 Bundle-Version: 4.4.1.fuse-08-15
-Bnd-LastModified: 1365155683305
+Bnd-LastModified: 1365411733353
 Bundle-ManifestVersion: 2
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
 Bundle-Description: CXF Example using JAX-RS

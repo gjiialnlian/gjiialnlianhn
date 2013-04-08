@@ -28,6 +28,14 @@ http://www.springframework.org/schema/osgi http://www.springframework.org/schema
 http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd 
 http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
+	<bean id="propertyPlaceholder" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="locations">
+    		<list>
+    			<value>classpath:com/nws/resources/environment.properties</value>
+    		</list>
+    	</property>
+    </bean>
+
 	<import resource ="ws.xml"/>
 	<import resource ="camel.xml"/>
 
