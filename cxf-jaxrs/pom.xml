@@ -88,7 +88,8 @@
                             javax.xml.namespace
                         </Import-Package>
                         <Export-Package>
-                        	org.apache.servicemix.examples.cxf.jaxrs.service
+                        	org.apache.servicemix.examples.cxf.jaxrs.service,
+                        	org.mmedev.rs
                         </Export-Package>
                     </instructions>
                 </configuration>
