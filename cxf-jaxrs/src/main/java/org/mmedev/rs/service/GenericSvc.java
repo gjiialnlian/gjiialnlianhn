@@ -1,10 +1,8 @@
 package org.mmedev.rs.service;
 
 import java.net.URL;
-
 import javax.ws.rs.core.Response;
 import javax.xml.namespace.QName;
-import org.mmedev.rs.model.MyAccount;
 
 public abstract class GenericSvc<T,PT> {
 	
@@ -19,7 +17,7 @@ public abstract class GenericSvc<T,PT> {
 		this.SERVICE_NAME=SERVICE_NAME;
 	}
 	
-	public Response generateProcessResponse(MyAccount bean, Integer result, String message){
+	public <E> Response generateProcessResponse(E bean, Integer result, String message){
 		Response response = null;
 
 		if (result > 0)
