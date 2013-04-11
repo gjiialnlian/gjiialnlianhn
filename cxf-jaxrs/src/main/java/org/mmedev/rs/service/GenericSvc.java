@@ -8,8 +8,6 @@ public abstract class GenericSvc<T,PT> {
 	
 	protected URL wsdlURL;
 	protected QName SERVICE_NAME;
-	protected String message = "OK";
-	protected int result = 200;
 	protected PT SERVICE_PORT = null;
 	
 	public GenericSvc(URL wsdlURL, QName SERVICE_NAME) {
@@ -17,7 +15,7 @@ public abstract class GenericSvc<T,PT> {
 		this.SERVICE_NAME=SERVICE_NAME;
 	}
 	
-	public <E> Response generateProcessResponse(E bean, Integer result, String message){
+	public <E> Response generateProcessResponse(E bean, Integer result){
 		Response response = null;
 
 		if (result > 0)
@@ -46,4 +44,6 @@ public abstract class GenericSvc<T,PT> {
 	public void setWsdlURL(URL wsdlURL) {
 		this.wsdlURL = wsdlURL;
 	}
+	
+	
 }

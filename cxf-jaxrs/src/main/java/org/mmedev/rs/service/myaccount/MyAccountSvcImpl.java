@@ -1,10 +1,15 @@
 package org.mmedev.rs.service.myaccount;
 
-import java.util.logging.Logger;
 import javax.ws.rs.core.Response;
 import javax.xml.namespace.QName;
+import javax.xml.ws.WebServiceException;
+
+import org.apache.camel.ProducerTemplate;
+import org.mmedev.exception.BaseException;
 import org.mmedev.rs.model.MyAccount;
 import org.mmedev.rs.service.GenericSvc;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.melbourneit.usermanagement.client.myaccount.MyAccountVO;
 import com.melbourneit.usermanagement.service.myaccount.MyAccountService;
 import com.melbourneit.usermanagement.service.myaccount.MyAccountServicePortType;
@@ -12,7 +17,9 @@ import com.melbourneit.util.WSDL;
 
 public class MyAccountSvcImpl extends GenericSvc<MyAccountVO,MyAccountServicePortType> implements MyAccountSvc{
 	
-	private static Logger logger = Logger.getLogger(MyAccountSvcImpl.class.toString());
+	private static Logger logger = LoggerFactory.getLogger(MyAccountSvcImpl.class);
+	
+	private ProducerTemplate producer;
 
 	public MyAccountSvcImpl() {
 		super(WSDL.MY_ACCOUNT.getLocation(), new QName(MyAccountVO.HTTP_MEL_USERMANAGEMENT_NS, "MyAccountService"));
@@ -20,15 +27,17 @@ public class MyAccountSvcImpl extends GenericSvc<MyAccountVO,MyAccountServicePor
 	}
 	
 	public Response getMyAccount(String id) {
-		return getMyAccountFromWS(id);
+		return (Response) producer.requestBody("direct:getMyAccount", id);
 	}
 
 	public Response getMyAccountJson(String id) {
-		return getMyAccountFromWS(id);
+		return (Response) producer.requestBody("direct:getMyAccount", id);
 	}
 	
-	private Response getMyAccountFromWS(String id){
+	public Response getMyAccountFromWS(String id){
 		MyAccount account = new MyAccount();
+		int result = 1;
+		
 		try{
 			MyAccountVO acco = SERVICE_PORT.getMyAccount(id);
 
@@ -42,29 +51,44 @@ public class MyAccountSvcImpl extends GenericSvc<MyAccountVO,MyAccountServicePor
 	        account.setFirstname(acco.getFirstname().getValue());
 	        account.setLastname(acco.getLastname().getValue());
 	        account.setLogin(acco.getLogin().getValue());
-	        account.setMessage(acco.getMessage().getValue());
 	        account.setMobile(acco.getMobile().getValue());
 	        account.setOrganisation(acco.getOrganisation().getValue());
 	        account.setPartyId(acco.getPartyId());
 	        account.setPartyType(acco.getPartyType().getValue());
 	        account.setPhone(acco.getPassword().getValue());
 	        account.setPostcode(acco.getPostcode().getValue());
-	        account.setResult(acco.getResult().getValue());
 	        account.setState(acco.getState().getValue());
 	        account.setStatus(acco.getStatus().getValue());
 	        account.setSuburb(acco.getSuburb().getValue());
 	        account.setType(acco.getType().getValue());
+	        
+	        account.setResponseMessage(acco.getMessage().getValue());
+	        account.setResponseResult(acco.getResult().getValue());
+	        
+		}catch (WebServiceException e) {
+			account.setResponseResult("failed");
+			account.setResponseMessage("Connection Timeout.");
+			logger.error(e.getMessage());
 		}catch (Exception e) {
-			logger.info(e.getMessage());
-			this.message = e.getMessage();
-			this.result = 0;
+			account.setResponseResult("failed");
+			account.setResponseMessage(e.getMessage());
+			result = 0;
+			logger.error(e.getMessage());
 		}
         
-		return generateProcessResponse(account, result, message);
+		return generateProcessResponse(account, result);
 	}
 	
 	public MyAccountServicePortType getHttpPortType(){
 		MyAccountService ss = new MyAccountService(wsdlURL, SERVICE_NAME);
 		return ss.getServiceHttpPort();
+	}
+
+	public ProducerTemplate getProducer() {
+		return producer;
+	}
+
+	public void setProducer(ProducerTemplate producer) {
+		this.producer = producer;
 	}
 }

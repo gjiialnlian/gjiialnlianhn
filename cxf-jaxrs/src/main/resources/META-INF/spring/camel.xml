@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans 
-       					   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
-       					   http://camel.apache.org/schema/spring 
-       					   http://camel.apache.org/schema/spring/camel-spring.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+        xmlns:osgi="http://www.springframework.org/schema/osgi"
+    xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd
+http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd 
+http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
+    <camelContext xmlns="http://camel.apache.org/schema/spring">
+    <template id="camelTemplate"/>
+    <route>
+        <from uri="direct:getMyAccount"/>
+        <log message="Retrieving account info ..."/>
+        <bean ref="userMgtSvc" method="getMyAccountFromWS"/>
+        <log message="Done on retrieving account info ..."/>
+    </route>
+</camelContext>
     
 </beans>

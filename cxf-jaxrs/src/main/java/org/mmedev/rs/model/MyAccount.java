@@ -1,10 +1,9 @@
 package org.mmedev.rs.model;
 
-import java.io.Serializable;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "MyAccount")
-public class MyAccount implements Serializable{
+public class MyAccount extends GenericRS{
 
 	private static final long serialVersionUID = 1098765421323L;
 	
@@ -18,7 +17,6 @@ public class MyAccount implements Serializable{
 	private String firstname;
 	private String lastname;
 	private String login;
-	private String message;
 	private String mobile;
 	private String organisation;
 	private String partyId;
@@ -26,7 +24,6 @@ public class MyAccount implements Serializable{
 	private String password;
 	private String phone;
 	private String postcode;
-	private String result;
 	private String state;
 	private String status;
 	private String suburb;
@@ -92,12 +89,6 @@ public class MyAccount implements Serializable{
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	public String getMessage() {
-		return message;
-	}
-	public void setMessage(String message) {
-		this.message = message;
-	}
 	public String getMobile() {
 		return mobile;
 	}
@@ -139,12 +130,6 @@ public class MyAccount implements Serializable{
 	}
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
-	}
-	public String getResult() {
-		return result;
-	}
-	public void setResult(String result) {
-		this.result = result;
 	}
 	public String getState() {
 		return state;

@@ -16,5 +16,7 @@
     	</property>
     </bean>
     
-    <bean id="userMgtSvc" class="org.mmedev.rs.service.myaccount.MyAccountSvcImpl"/>
+    <bean id="userMgtSvc" class="org.mmedev.rs.service.myaccount.MyAccountSvcImpl">
+    	<property name="producer" ref="camelTemplate" />
+    </bean>
 </beans>
