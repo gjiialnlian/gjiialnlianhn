@@ -1,4 +1,4 @@
-package com.melbourneit.usermanagement.util;
+package com.melbourneit.util;
 
 import java.util.ArrayList;
 import java.util.List;

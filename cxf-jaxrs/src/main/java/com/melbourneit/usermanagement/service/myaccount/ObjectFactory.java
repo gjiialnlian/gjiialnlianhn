@@ -1,8 +1,7 @@
 package com.melbourneit.usermanagement.service.myaccount;
 
 import javax.xml.bind.annotation.XmlRegistry;
-
-import com.melbourneit.usermanagement.util.String2StringMap;
+import com.melbourneit.util.String2StringMap;
 
 @XmlRegistry
 public class ObjectFactory {

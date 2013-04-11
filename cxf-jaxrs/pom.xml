@@ -63,7 +63,7 @@
 			<artifactId>camel-jaxb</artifactId>
 			<version>2.10.4</version>
 		</dependency>
-    </dependencies>
+	</dependencies>
 
     <build>
         <plugins>
@@ -82,7 +82,6 @@
                             javax.ws.rs,
                             javax.ws.rs.core,
                             org.springframework.beans.factory.config,
-                            org.apache.servicemix.examples.cxf.jaxrs.service,
                             org.apache.commons.httpclient,
                             org.apache.commons.httpclient.methods,
                             org.apache.camel.builder, 
@@ -96,11 +95,10 @@
                             org.apache.camel,
                             javax.xml.ws,
                             javax.jws,
-                            javax.xml.namespace
+                            javax.xml.namespace,
+                            org.slf4j
                         </Import-Package>
                         <Export-Package>
-                        	org.apache.servicemix.examples.cxf.jaxrs.service,
-                        	org.mmedev.rs
                         </Export-Package>
                     </instructions>
                 </configuration>

@@ -16,10 +16,5 @@
     	</property>
     </bean>
     
-	
-	<bean id="customerSvc" class="org.apache.servicemix.examples.cxf.jaxrs.service.CustomerService"/>
-    <bean id="orderSvc" class="org.apache.servicemix.examples.cxf.jaxrs.service.OrderService">
-    	<property name="template" ref="camelTemplate"/>
-    </bean>
     <bean id="userMgtSvc" class="org.mmedev.rs.service.myaccount.MyAccountSvcImpl"/>
 </beans>

@@ -7,14 +7,5 @@
        					   http://camel.apache.org/schema/spring 
        					   http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-    <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <template id="camelTemplate"/>
-    <route>
-        <from uri="direct:processorder"/>
-        <log message="processing order..."/>
-        <bean ref="orderSvc" method="processOrder"/>
-        <log message="done processing order..."/>
-    </route>
-</camelContext>
     
 </beans>
