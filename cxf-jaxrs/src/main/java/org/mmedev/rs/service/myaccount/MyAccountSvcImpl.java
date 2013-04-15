@@ -38,12 +38,9 @@ public class MyAccountSvcImpl extends GenericSvc<MyAccountVO,MyAccountServicePor
 	}
 	
 	
-	public MyAccount getMyAccountRoute(String id){
+	public MyAccount getMyAccounFromtWS(String id){
 		MyAccount account = new MyAccount();
-		int result = 1;
-		
-		logger.info("###########getMyAccount ROUTER ....");
-		
+
 		try{
 			MyAccountVO acco = SERVICE_PORT.getMyAccount(id);
 
@@ -81,58 +78,9 @@ public class MyAccountSvcImpl extends GenericSvc<MyAccountVO,MyAccountServicePor
 			account.setResponseResult("failed");
 			account.setResponseMessage("Server Error : "+e.getMessage());
 			account.setResponseCode("500");
-			result = 0;
 			logger.error(e.getMessage());
 		}
 		return account;
-	}
-	
-	public Response getMyAccountFromWS(String id){
-		MyAccount account = new MyAccount();
-		int result = 1;
-		
-		try{
-			MyAccountVO acco = SERVICE_PORT.getMyAccount(id);
-
-	        account.setAddress1(acco.getAddress1().getValue());
-	        account.setAddress2(acco.getAddress2().getValue());
-	        account.setAddress3(acco.getAddress3().getValue());
-	        account.setChannel(acco.getChannel().getValue());
-	        account.setCountryCode(acco.getCountryCode().getValue());
-	        account.setEmail(acco.getEmail().getValue());
-	        account.setFax(acco.getFax().getValue());
-	        account.setFirstname(acco.getFirstname().getValue());
-	        account.setLastname(acco.getLastname().getValue());
-	        account.setLogin(acco.getLogin().getValue());
-	        account.setMobile(acco.getMobile().getValue());
-	        account.setOrganisation(acco.getOrganisation().getValue());
-	        account.setPartyId(acco.getPartyId());
-	        account.setPartyType(acco.getPartyType().getValue());
-	        account.setPhone(acco.getPassword().getValue());
-	        account.setPostcode(acco.getPostcode().getValue());
-	        account.setState(acco.getState().getValue());
-	        account.setStatus(acco.getStatus().getValue());
-	        account.setSuburb(acco.getSuburb().getValue());
-	        account.setType(acco.getType().getValue());
-	        
-	        account.setResponseMessage(acco.getMessage().getValue());
-	        account.setResponseResult(acco.getResult().getValue());
-	        account.setResponseCode("200");
-	        
-		}catch (WebServiceException e) {
-			account.setResponseResult("failed");
-			account.setResponseMessage("Connection Timeout.");
-			account.setResponseCode("504");
-			logger.error(e.getMessage());
-		}catch (Exception e) {
-			account.setResponseResult("failed");
-			account.setResponseMessage("Server Error : "+e.getMessage());
-			account.setResponseCode("500");
-			result = 0;
-			logger.error(e.getMessage());
-		}
-        
-		return generateProcessResponse(account, result);
 	}
 	
 	public MyAccountServicePortType getHttpPortType(){

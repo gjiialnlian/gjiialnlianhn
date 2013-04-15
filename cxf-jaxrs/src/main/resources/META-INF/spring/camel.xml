@@ -13,11 +13,11 @@ http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/came
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
     <template id="camelTemplate"/>
-    <endpoint uri="smtp://smtp.gmail.com:465?username=maniladevtestmail@gmail.com&amp;password=googletestmail" id="email-server"/>
+    <!-- <endpoint uri="smtp://smtp.gmail.com:465?username=maniladevtestmail@gmail.com&amp;password=googletestmail" id="email-server"/> -->
     <route>
         <from uri="direct:getMyAccount"/>
         <log message="Retrieving account info ..."/>
-        <bean ref="userMgtSvc" method="getMyAccountRoute"/>
+        <bean ref="userMgtSvc" method="getMyAccounFromtWS"/>
         <to uri="direct:filterCountryCode"/>
         <log message="Done on retrieving account info ..."/>
     </route>
@@ -26,12 +26,12 @@ http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/came
         <choice>
             <when>
                 <xpath>/MyAccount[countryCode='AU']</xpath>
-                <log message="Country Code is AU."/>
+                <log message="Country Code is US."/>
                 <to uri="direct:myAccountlogger"/>
             </when>
             <when>
                 <xpath>/MyAccount[countryCode='US']</xpath>
-                <log message="Country Code is US."/>
+                <log message="Country Code is AU."/>
                 <log message="Email"/>
                 <to uri="direct:myAccountEmail"/>
             </when>
@@ -50,13 +50,15 @@ http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/came
         <log message="Loading MyAccount email info ..."/>
         <bean ref="myAccountEmail" method="sendEmail2"/>
     </route>
+    <!-- 
     <route>
         <from uri="direct:myAccountEmailProcessor"/>
         <log message="Processing MyAccount email"/>
         <to uri="velocity:com/nws/resources/template/myaccount.vm?propertiesFile=velocity.properties"/>
-        <to uri="ref:email-server"/>
+        <to ref="email-server"/>
         <log message="sent myaccount email"/>
     </route>
+     -->
 </camelContext>
     
 </beans>
