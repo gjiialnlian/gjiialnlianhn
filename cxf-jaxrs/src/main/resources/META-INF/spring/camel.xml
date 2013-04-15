@@ -25,12 +25,12 @@ http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/came
         <from uri="direct:filterCountryCode"/>
         <choice>
             <when>
-                <xpath>/MyAccount[countryCode='AU']</xpath>
+                <xpath>/MyAccount[countryCode='US']</xpath>
                 <log message="Country Code is US."/>
                 <to uri="direct:myAccountlogger"/>
             </when>
             <when>
-                <xpath>/MyAccount[countryCode='US']</xpath>
+                <xpath>/MyAccount[countryCode='AU']</xpath>
                 <log message="Country Code is AU."/>
                 <log message="Email"/>
                 <to uri="direct:myAccountEmail"/>
