@@ -13,11 +13,49 @@ http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/came
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
     <template id="camelTemplate"/>
+    <endpoint uri="smtp://smtp.gmail.com:465?username=maniladevtestmail@gmail.com&amp;password=googletestmail" id="email-server"/>
     <route>
         <from uri="direct:getMyAccount"/>
         <log message="Retrieving account info ..."/>
-        <bean ref="userMgtSvc" method="getMyAccountFromWS"/>
+        <bean ref="userMgtSvc" method="getMyAccountRoute"/>
+        <to uri="direct:filterCountryCode"/>
         <log message="Done on retrieving account info ..."/>
+    </route>
+    <route>
+        <from uri="direct:filterCountryCode"/>
+        <choice>
+            <when>
+                <xpath>/MyAccount[countryCode='AU']</xpath>
+                <log message="Country Code is AU."/>
+                <to uri="direct:myAccountlogger"/>
+            </when>
+            <when>
+                <xpath>/MyAccount[countryCode='US']</xpath>
+                <log message="Country Code is US."/>
+                <log message="Email"/>
+                <to uri="direct:myAccountEmail"/>
+            </when>
+            <otherwise>
+                <log message="Do nothing ..."/>
+            </otherwise>
+        </choice>
+    </route>
+    <route>
+        <from uri="direct:myAccountlogger"/>
+        <log message="Logging info ..."/>
+        <bean ref="myAccountLogger" method="log"/>
+    </route>
+    <route>
+        <from uri="direct:myAccountEmail"/>
+        <log message="Loading MyAccount email info ..."/>
+        <bean ref="myAccountEmail" method="sendEmail2"/>
+    </route>
+    <route>
+        <from uri="direct:myAccountEmailProcessor"/>
+        <log message="Processing MyAccount email"/>
+        <to uri="velocity:com/nws/resources/template/myaccount.vm?propertiesFile=velocity.properties"/>
+        <to uri="ref:email-server"/>
+        <log message="sent myaccount email"/>
     </route>
 </camelContext>
     

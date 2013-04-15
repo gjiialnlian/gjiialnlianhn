@@ -63,6 +63,16 @@
 			<artifactId>camel-jaxb</artifactId>
 			<version>2.10.4</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.apache.camel</groupId>
+		    <artifactId>camel-mail</artifactId>
+		    <version>2.10.4</version>
+		</dependency>
+		<dependency>
+            <groupId>velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.5</version>
+        </dependency>
 	</dependencies>
 
     <build>
@@ -96,7 +106,12 @@
                             javax.xml.ws,
                             javax.jws,
                             javax.xml.namespace,
-                            org.slf4j
+                            org.slf4j,
+                            org.apache.velocity, 
+                            org.apache.velocity.app, 
+                            org.apache.velocity.context,
+                            javax.mail, 
+                            javax.mail.internet
                         </Import-Package>
                         <Export-Package>
                         </Export-Package>

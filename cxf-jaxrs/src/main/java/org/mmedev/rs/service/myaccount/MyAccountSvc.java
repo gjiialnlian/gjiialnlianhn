@@ -10,9 +10,9 @@ import javax.ws.rs.core.Response;
 public interface MyAccountSvc{
     
 	@GET
-    @Path("/getMyAccount/{id}/")
+    @Path("/getMyAccountXml/{id}/")
     @Produces("application/xml")
-    public Response getMyAccount(@PathParam("id") String id);
+    public Response getMyAccountXml(@PathParam("id") String id);
 	
     @GET
     @Path("/getMyAccountJson/{id}/")

@@ -19,4 +19,9 @@
     <bean id="userMgtSvc" class="org.mmedev.rs.service.myaccount.MyAccountSvcImpl">
     	<property name="producer" ref="camelTemplate" />
     </bean>
+    
+    <bean id="myAccountLogger" class="org.mmedev.logger.MyAccountLogger" />
+    <bean id="myAccountEmail" class="org.mmedev.email.MyAccountEmail">
+    	<property name="producer" ref="camelTemplate" />
+    </bean>
 </beans>
