@@ -18,4 +18,10 @@ public interface MyAccountSvc{
     @Path("/getMyAccountJson/{id}/")
     @Produces("application/json")
     public Response getMyAccountJson(@PathParam("id") String id);
+    
+    @GET
+    @Path("/updateMyAccount/{id}/")
+    @Produces("application/json")
+    public Response updateMyAccount(@PathParam("id") String id);
+
 }

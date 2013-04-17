@@ -73,6 +73,16 @@
             <artifactId>velocity</artifactId>
             <version>1.5</version>
         </dependency>
+        <dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+		 <dependency>
+            <groupId>com.mme.aws.sns</groupId>
+            <artifactId>aws-sns</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 	</dependencies>
 
     <build>
@@ -111,9 +121,59 @@
                             org.apache.velocity.app, 
                             org.apache.velocity.context,
                             javax.mail, 
-                            javax.mail.internet
+                            javax.mail.internet,
+                          	com.mme.aws.sns.client,
+                          	com.amazonaws.auth, 
+                          	com.amazonaws.services.cloudsearch.model, 
+                          	com.amazonaws.services.sns, 
+                          	com.amazonaws.services.sns.model, 
+                          	com.mme.aws, 
+                          	com.mme.aws.sns.constant,
+                          	com.amazonaws, 
+                          	com.amazonaws.http, 
+                          	com.amazonaws.internal, 
+                          	com.amazonaws.services.securitytoken, 
+                          	com.amazonaws.services.securitytoken.model, 
+                          	com.amazonaws.util, 
+                          	com.amazonaws.util.json, 
+                          	javax.crypto, 
+                          	javax.crypto.spec, 
+                          	org.apache.commons.codec.binary, 
+                          	org.apache.commons.logging,
+                          	com.amazonaws.handlers, 
+                          	com.amazonaws.regions,
+                          	com.amazonaws.transform, 
+                          	javax.net.ssl, 
+                          	javax.xml.stream, 
+                          	org.apache.http, 
+                          	org.apache.http.auth, 
+                          	org.apache.http.client, 
+                          	org.apache.http.client.methods, 
+                          	org.apache.http.conn, 
+                          	org.apache.http.conn.scheme, 
+                          	org.apache.http.conn.ssl, 
+                          	org.apache.http.entity, 
+                          	org.apache.http.impl.client, 
+                          	org.apache.http.impl.conn.tsccm, 
+                          	org.apache.http.params, 
+                          	org.apache.http.protocol, 
+                          	org.codehaus.jackson, 
+                          	org.w3c.dom, org.xml.sax,
+                          	javax.xml.parsers,
+                          	com.mme.util	
                         </Import-Package>
                         <Export-Package>
+                        	com.amazonaws,
+       						com.amazonaws.auth,
+       						com.amazonaws.handlers,
+       						com.amazonaws.http,
+       						com.amazonaws.internal,
+       						com.amazonaws.regions,
+       						com.amazonaws.services.cloudsearch.model,
+       						com.mme.aws,
+       						com.mme.aws.sns.client,
+       						com.mme.aws.sns.constant,
+       						com.mme.util
                         </Export-Package>
                     </instructions>
                 </configuration>

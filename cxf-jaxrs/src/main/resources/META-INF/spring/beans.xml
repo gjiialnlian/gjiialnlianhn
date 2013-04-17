@@ -20,6 +20,8 @@
     	<property name="producer" ref="camelTemplate" />
     </bean>
     
+    <bean id="notifySvc" class="org.mmedev.rs.service.notification.NotificationSvcImpl" />
+    
     <bean id="myAccountLogger" class="org.mmedev.logger.MyAccountLogger" />
     <bean id="myAccountEmail" class="org.mmedev.email.MyAccountEmail">
     	<property name="producer" ref="camelTemplate" />

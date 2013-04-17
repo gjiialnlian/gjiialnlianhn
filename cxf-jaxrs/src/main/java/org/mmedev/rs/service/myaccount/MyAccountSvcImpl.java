@@ -24,6 +24,12 @@ public class MyAccountSvcImpl extends GenericSvc<MyAccountVO,MyAccountServicePor
 		connectToWS();
 	}
 	
+	@Override
+	public Response updateMyAccount(String id) {
+	
+		return null;
+	}
+	
 	public Response getMyAccountXml(String id) {
 		return getMyAccount(id);
 	}

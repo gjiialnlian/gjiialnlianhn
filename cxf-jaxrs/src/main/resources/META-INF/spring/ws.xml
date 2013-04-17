@@ -13,4 +13,10 @@
             <ref bean="userMgtSvc"/>
         </jaxrs:serviceBeans>
     </jaxrs:server>
+    
+     <jaxrs:server id="notificationSvc" address="/notification">
+        <jaxrs:serviceBeans>
+            <ref bean="notifySvc"/>
+        </jaxrs:serviceBeans>
+    </jaxrs:server>
 </beans>
