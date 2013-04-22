@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.mme.hbmjpa</groupId>
+	<artifactId>mme-hbmjpa</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.mainClass>com.danielme.demo.Main</project.build.mainClass>
+		<project.hibernate.version>4.0.1.Final</project.hibernate.version>	
+		<project.java.version>1.6</project.java.version>			
+	</properties>
+	
+	<repositories>
+		<repository>
+			<id>fusesource</id>
+			<url>http://repo.fusesource.com/maven2</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>fusesource.snapshot</id>
+			<url>http://repo.fusesource.com/maven2-snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>fusesource.all</id>
+			<url>http://repo.fusesource.com/maven2-all</url>
+		</repository>
+		 <repository>
+	        <id>JBoss repository</id>
+	        <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+	    </repository>
+	    <repository>
+	      <id>codelds</id>
+	      <url>https://code.lds.org/nexus/content/groups/main-repo</url>
+	    </repository>
+ </repositories>
+ 
+ <dependencies>   
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${project.hibernate.version}</version>
+		</dependency>
+		
+		<!-- connection pooling with c3p0 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>${project.hibernate.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		
+		<!-- =========== JDBC DRIVER ========== -->
+		<dependency>
+    <groupId>com.oracle</groupId>
+    <artifactId>ojdbc6</artifactId>
+    <version>11.2.0.3</version>
+</dependency>
+	</dependencies>
+	
+	<build>
+		<pluginManagement>
+			<plugins>	
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.0</version>
+					<configuration>
+						<source>${project.java.version}</source>
+						<target>${project.java.version}</target>
+					</configuration>
+				</plugin>
+				
+				<!-- standard runnable jar -->
+				 <plugin>
+	                    <groupId>org.apache.maven.plugins</groupId>
+	                    <artifactId>maven-jar-plugin</artifactId>
+	                    <version>2.4</version>
+	                    <configuration>
+	                        <archive>
+	                            <manifest>
+	                                <addClasspath>true</addClasspath>
+	                                <mainClass>${project.build.mainClass}</mainClass>
+                            </manifest>
+	                        </archive>
+	                    </configuration>
+	                </plugin>
+
+				<!-- run project > mvn clean package exec:java-->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.2.1</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>java</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<mainClass>${project.build.mainClass}</mainClass>
+					</configuration>
+				</plugin>
+				
+				<!-- package all dependencies in one executable big jar > mvn clean package shade:shade-->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-shade-plugin</artifactId>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>shade</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<finalName>${artifactId}-${version}-all-deps</finalName>	
+						<transformers>
+	                		<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+	                 		 <mainClass>${project.build.mainClass}</mainClass>
+	               		 	</transformer>
+	              		</transformers>		
+	              		
+						 <filters>
+				            <filter>
+				              <artifact>*:*</artifact>
+				              <excludes>
+				                <exclude>META-INF/*.SF</exclude>
+				                <exclude>META-INF/*.DSA</exclude>
+				                <exclude>META-INF/*.RSA</exclude>
+				              </excludes>
+				            </filter>
+          				</filters>
+	              				
+					</configuration>
+				</plugin>
+			
+		  </plugins>
+			
+		</pluginManagement>
+		
+	</build>
+</project>
