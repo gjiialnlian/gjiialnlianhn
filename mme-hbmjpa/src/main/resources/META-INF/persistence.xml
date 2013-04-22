@@ -15,8 +15,8 @@
 			<property name="hibernate.connection.url" value="jdbc:oracle:thin:@db.mmeservice.net:1521:VZWDB01" />
 			<property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
-			<property name="hibernate.connection.username" value="vzwmme" />
-			<property name="hibernate.connection.password" value="v2wmm3" />	
+			<property name="hibernate.connection.username" value="" />
+			<property name="hibernate.connection.password" value="" />	
 			<property name="hibernate.hbm2ddl.auto" value="update"/>		
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.connection.autocommit" value="false" />			
@@ -46,8 +46,8 @@
 			<property name="hibernate.connection.url" value="jdbc:oracle:thin:@db.mmeservice.net:1521:VZWDB01" />
 			<property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
-			<property name="hibernate.connection.username" value="vzwmme" />
-			<property name="hibernate.connection.password" value="v2wmm3" />	
+			<property name="hibernate.connection.username" value="" />
+			<property name="hibernate.connection.password" value="" />	
 			<property name="hibernate.hbm2ddl.auto" value="update"/>		
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.connection.autocommit" value="false" />			

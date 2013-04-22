@@ -10,7 +10,6 @@
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.build.mainClass>com.danielme.demo.Main</project.build.mainClass>
 		<project.hibernate.version>4.0.1.Final</project.hibernate.version>	
 		<project.java.version>1.6</project.java.version>			
 	</properties>
